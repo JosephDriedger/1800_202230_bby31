@@ -1,11 +1,13 @@
 ## My Web Application (Add your Title here)
 
-* [General info](#general-info)
-* [Technologies](#technologies)
-* [Contents](#content)
+- [My Web Application (Add your Title here)](#my-web-application-add-your-title-here)
+- [General Info](#general-info)
+- [Technologies](#technologies)
+- [Content](#content)
 
 ## General Info
 This browser based web application to ...
+* Hi everyone, my name is Ning Feng
 * Hi, my name is Joseph. I'm excited about this project because this is my first time working in a group project with people eager to code.
 * Hi my name is emma I say hi
 *
