@@ -8,6 +8,8 @@
 ## General Info
 This browser based web application to ...
 * Hi everyone, my name is Ning Feng
+* Hi, my name is Joseph. I'm excited about this project because this is my first time working in a group project with people eager to code.
+* Hi my name is emma
 	
 ## Technologies
 Technologies used for this project:
