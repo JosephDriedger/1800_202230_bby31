@@ -1,11 +1,13 @@
 ## My Web Application (Add your Title here)
 
-* [General info](#general-info)
-* [Technologies](#technologies)
-* [Contents](#content)
+- [My Web Application (Add your Title here)](#my-web-application-add-your-title-here)
+- [General Info](#general-info)
+- [Technologies](#technologies)
+- [Content](#content)
 
 ## General Info
 This browser based web application to ...
+* Hi everyone, my name is Ning Feng
 	
 ## Technologies
 Technologies used for this project:
