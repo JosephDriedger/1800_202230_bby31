@@ -7,6 +7,7 @@
 ## General Info
 This browser based web application to ...
 * Hi, my name is Joseph. I'm excited about this project because this is my first time working in a group project with people eager to code.
+* This is bad. Real bad.
 	
 ## Technologies
 Technologies used for this project:
