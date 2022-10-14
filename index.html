@@ -3,29 +3,33 @@
 
 <head>
     <title>My BCIT Project</title>
-    <meta name="comp1800 template" content="Commute!">
+    <meta name="comp1800 template" content="Commute!" />
 
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap Library CSS CDN go here -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <!-- Boostrap Library JS CDN  go here -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+
 
     <!-- Other libraries go here -->
 
     <!-- Link to styles of your own -->
     <!-- <link rel="stylesheet" href="./styles/style.css"> -->
 
+    <style>
+       
+    </style>
+
 </head>
 
 <body>
-
     <!------------------------------>
     <!-- Your HTML Layout go here -->
     <!------------------------------>
@@ -34,8 +38,9 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <!-- THIS IS A TEMPORARY ICON UNTIL WE CREATE ONE!! -->
-                <img src="./images/icon_temp.png" height="36">
-                Commute!</a>
+                <img src="./images/icon_temp.png" height="36" />
+                Commute!
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -75,23 +80,44 @@
                     </li>
                 </ul>
                 <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit">
+                        Search
+                    </button>
                 </form>
             </div>
         </div>
     </nav>
 
+    <hr class="my-5">
+    <div class="card card-image"
+         style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
+      <div class="text-white text-center py-5 px-4 my-5">
+        <div>
+          <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>Never be late for your date!</strong></h2>
+          <p class="mx-5 mb-5">This App can help you act your schedule punctually
+          </p>
+          <button type="button" class="btn btn-success">Join Us</button>
+        </div>
+      </div>
+    </div>
+
     <div class="px-4 py-5 my-5 text-center">
         <!-- AGAIN, THIS IS A TEMPORARY ICON UNTIL WE CREATE ONE!! -->
-        <img class="d-block mx-auto mb-4" src="./images/icon_temp.png" alt="" width="72" height="72">
+        <img class="d-block mx-auto mb-4" src="./images/icon_temp.png" alt="" width="72" height="72" />
         <h1 class="display-5 fw-bold">Welcome to Commute!</h1>
         <div class="col-lg-6 mx-auto">
-            <p class="lead mb-4">Avoid delays and be on time through alerts about your commute.</p>
+            <p class="lead mb-4">
+                Avoid delays and be on time through alerts about your commute.
+            </p>
             <h2>Make your life much easier!</h2>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button type="button" class="btn btn-info btn-lg px-4 gap-3">Signup</button>
-                <button type="button" class="btn btn-secondary btn-lg px-4 gap-3">Login</button>
+                <button type="button" class="btn btn-info btn-lg px-4 gap-3">
+                    Signup
+                </button>
+                <button type="button" class="btn btn-secondary btn-lg px-4 gap-3">
+                    Login
+                </button>
             </div>
         </div>
     </div>
@@ -113,7 +139,6 @@
 
     <!-- Link to scripts of your own -->
     <!-- <script src="./scripts/script.js"></script> -->
-
 </body>
 
 </html>
