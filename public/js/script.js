@@ -1,5 +1,5 @@
-function loadSkeleton(){
-    console.log($('#navbarPlaceholder').load('./text/navbar.html'));
-    console.log($('#footerPlaceholder').load('./text/footer.html'));
+function reportPage() {
+    console.log("You're in " + window.location.pathname);
 }
-loadSkeleton();  //invoke the function
+
+reportPage();

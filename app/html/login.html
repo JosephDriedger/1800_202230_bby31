@@ -18,10 +18,20 @@
         crossorigin="anonymous"></script>
 
 
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
     <!-- Other libraries go here -->
 
     <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 
     <style>
        
@@ -34,7 +44,11 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
 
+    <!-- navbar placeholder -->
     <nav id="navbarPlaceholder"></nav>
+
+    <!-- the body of your page goes here -->
+    <div id="firebaseui-auth-container"></div>
 
     <!-- copyright footer -->
     <footer id="footerPlaceholder"></footer>
@@ -44,7 +58,10 @@
     <!---------------------------------------------->
 
     <!-- Link to scripts of your own -->
-    <script src="./scripts/script.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/firebaseAPI_TEAM31.js"></script>
+    <script src="./js/authenication.js"></script>
+    <script src="./js/skeleton.js"></script>
 </body>
 
 </html>

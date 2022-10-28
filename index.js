@@ -22,7 +22,7 @@ app.get("/", function (req, res) {
 });
 
 app.get("/login", function (req, res) {
-    let doc = fs.readFileSync("./app/login.html/", "utf8");
+    let doc = fs.readFileSync("./app/html/login.html", "utf8");
     res.send(doc);
 });
 
