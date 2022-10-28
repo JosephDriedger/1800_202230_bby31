@@ -17,11 +17,20 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
+    <!-------------------------------------------------------->
+    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+    <!-------------------------------------------------------->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- Other libraries go here -->
 
     <!-- Link to styles of your own -->
-    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+    <link rel="stylesheet" href="./styles/style.css">
 
     <style>
        
@@ -34,60 +43,7 @@
     <!-- Your HTML Layout go here -->
     <!------------------------------>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <!-- THIS IS A TEMPORARY ICON UNTIL WE CREATE ONE!! -->
-                <img src="img/icon_temp.png" height="36" />
-                Commute!
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Routes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Notifications</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Schedule</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Password Reset</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Privacy</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Language</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Help</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Themes</a>
-                    </li>
-                    <li class="nav-item text-warning">
-                        <a class="nav-link" href="#">Sign Out</a>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button class="btn btn-outline-success" type="submit">
-                        Search
-                    </button>
-                </form>
-            </div>
-        </div>
-    </nav>
+    <nav id="navbarPlaceholder"></nav>
 
     <hr class="my-5">
     <div class="card card-image"
@@ -123,22 +79,14 @@
     </div>
 
     <!-- copyright footer -->
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <p class="col-md-4 mb-0 text-muted">&copy; 2022 BCIT COMP1800</p>
-        <a href="/"
-            class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            <svg class="bi me-2" width="40" height="32">
-                <use xlink:href="#bootstrap" />
-            </svg>
-        </a>
-    </footer>
+    <footer id="footerPlaceholder"></footer>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
 
     <!-- Link to scripts of your own -->
-    <!-- <script src="./scripts/script.js"></script> -->
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
