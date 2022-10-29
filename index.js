@@ -26,6 +26,11 @@ app.get("/login", function (req, res) {
     res.send(doc);
 });
 
+app.get("/main", function (req, res) {
+    let doc = fs.readFileSync("./app/html/main.html", "utf8");
+    res.send(doc);
+});
+
 // for resource not found (i.e., 404)
 app.use(function (req, res, next) {
     // this could be a separate file too - but you'd have to make sure that you have the path
