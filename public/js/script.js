@@ -15,4 +15,15 @@ function goToMainOrHome() {
     });
 }
 
+var pattern = /[ABCEFGHJKLMNPRSTVXY][0-9][ABCEFGHJKLMNPRSTVWXYZ][0-9][ABCEFGHJKLMNPRSTVWXYZ][0-9]/,
+$result = $("#result");
+
+$('#postCode').keyup(function(){
+  var val = this.value
+  if(!val.match(pattern)){
+    $result.text("invalid");
+  } else {
+    $result.text("valid");      
+  }
+});
 reportPage();
