@@ -1,439 +1,540 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <title>Commute! App</title>
-        <meta name="comp1800 template" content="Commute!" />
+<head>
+  <title>Commute! App</title>
+  <meta name="comp1800 template" content="Commute!" />
 
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <!-- Bootstrap Library CSS CDN go here -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-        <!-- Boostrap Library JS CDN  go here -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
+  <!-- Bootstrap Library CSS CDN go here -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <!-- Boostrap Library JS CDN  go here -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 
-        <!-------------------------------------------------------->
-        <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-        <!-------------------------------------------------------->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
-        <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <!-------------------------------------------------------->
+  <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+  <!-------------------------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-        <!-- Other libraries go here -->
+  <!-- Other libraries go here -->
 
-        <!-- Link to styles of your own -->
-        <link rel="stylesheet" href="./css/style_schedule.css">
+  <!-- Link to styles of your own -->
+  <link rel="stylesheet" href="./css/style_schedule.css">
 
-        <style>
-       @import url(https://fonts.googleapis.com/css?family=Oxygen:700,400,300);
-html {
-  background-color: #E8F0FA;
-  font-family: "Oxygen", sans-serif;
-}
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Oxygen:700,400,300);
 
-.container {
-  max-width: 60rem;
-  margin: 0 auto;
-}
+    html {
+      background-color: #E8F0FA;
+      font-family: "Oxygen", sans-serif;
+    }
 
-.card {
-  border-radius: 5px;
-  max-width: 40rem;
-  margin: 0 auto;
-  margin-top: 100px;
-  min-height: 300px;
-  background-color: #fff;
-  font-weight: 700;
-  text-transform: uppercase;
-  box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.22), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
-}
+    .container {
+      max-width: 60rem;
+      margin: 0 auto;
+    }
 
-.form__name {
-  font-family: "Oxygen";
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  font-weight: 900;
-  background-color: #15A4FA;
-  padding: 20px;
-  color: #fff;
-  font-size: 1.2rem;
-}
+    .card {
+      border-radius: 5px;
+      max-width: 40rem;
+      margin: 0 auto;
+      margin-top: 100px;
+      min-height: 300px;
+      background-color: #fff;
+      font-weight: 700;
+      text-transform: uppercase;
+      box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.22), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
+    }
 
-.time__container, .message__container, .contact__container {
-  padding: 20px 50px;
-}
+    .form__name {
+      font-family: "Oxygen";
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      font-weight: 900;
+      background-color: #15A4FA;
+      padding: 20px;
+      color: #fff;
+      font-size: 1.2rem;
+    }
 
-.form__time, .form__contact {
-  color: #47536A;
-  font-size: 0.7rem;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  font-weight: 700;
-  margin-top: 10px;
-}
-.form__time .date, .form__time .time, .form__time .timezone, .form__time .cname, .form__time .cnum, .form__time .email, .form__contact .date, .form__contact .time, .form__contact .timezone, .form__contact .cname, .form__contact .cnum, .form__contact .email {
-  display: inline-block;
-}
-.form__time .date label, .form__time .time label, .form__time .timezone label, .form__time .cname label, .form__time .cnum label, .form__time .email label, .form__contact .date label, .form__contact .time label, .form__contact .timezone label, .form__contact .cname label, .form__contact .cnum label, .form__contact .email label {
-  margin-bottom: 10px;
-}
-.form__time .date label, .form__time .date input, .form__time .time label, .form__time .time input, .form__time .timezone label, .form__time .timezone input, .form__time .cname label, .form__time .cname input, .form__time .cnum label, .form__time .cnum input, .form__time .email label, .form__time .email input, .form__contact .date label, .form__contact .date input, .form__contact .time label, .form__contact .time input, .form__contact .timezone label, .form__contact .timezone input, .form__contact .cname label, .form__contact .cname input, .form__contact .cnum label, .form__contact .cnum input, .form__contact .email label, .form__contact .email input {
-  display: block;
-  width: 200px;
-}
-.form__time .time, .form__time .cnum, .form__contact .time, .form__contact .cnum {
-  margin-left: 20px;
-}
-.form__time .timezone, .form__time .email, .form__contact .timezone, .form__contact .email {
-  margin-top: 10px;
-  display: block;
-}
-.form__time .timezone input, .form__time .email input, .form__contact .timezone input, .form__contact .email input {
-  width: 200px;
-}
+    .time__container,
+    .message__container,
+    .contact__container {
+      padding: 20px 50px;
+    }
 
-.section {
-  color: #47536A;
-}
-.section .box {
-  vertical-align: middle;
-  cursor: default;
-  -webkit-user-select: none;
-     -moz-user-select: none;
+    .form__time,
+    .form__contact {
+      color: #47536A;
+      font-size: 0.7rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    .form__time .date,
+    .form__time .time,
+    .form__time .timezone,
+    .form__time .cname,
+    .form__time .cnum,
+    .form__time .email,
+    .form__contact .date,
+    .form__contact .time,
+    .form__contact .timezone,
+    .form__contact .cname,
+    .form__contact .cnum,
+    .form__contact .email {
+      display: inline-block;
+    }
+
+    .form__time .date label,
+    .form__time .time label,
+    .form__time .timezone label,
+    .form__time .cname label,
+    .form__time .cnum label,
+    .form__time .email label,
+    .form__contact .date label,
+    .form__contact .time label,
+    .form__contact .timezone label,
+    .form__contact .cname label,
+    .form__contact .cnum label,
+    .form__contact .email label {
+      margin-bottom: 10px;
+    }
+
+    .form__time .date label,
+    .form__time .date input,
+    .form__time .time label,
+    .form__time .time input,
+    .form__time .timezone label,
+    .form__time .timezone input,
+    .form__time .cname label,
+    .form__time .cname input,
+    .form__time .cnum label,
+    .form__time .cnum input,
+    .form__time .email label,
+    .form__time .email input,
+    .form__contact .date label,
+    .form__contact .date input,
+    .form__contact .time label,
+    .form__contact .time input,
+    .form__contact .timezone label,
+    .form__contact .timezone input,
+    .form__contact .cname label,
+    .form__contact .cname input,
+    .form__contact .cnum label,
+    .form__contact .cnum input,
+    .form__contact .email label,
+    .form__contact .email input {
+      display: block;
+      width: 200px;
+    }
+
+    .form__time .time,
+    .form__time .cnum,
+    .form__contact .time,
+    .form__contact .cnum {
+      margin-left: 20px;
+    }
+
+    .form__time .timezone,
+    .form__time .email,
+    .form__contact .timezone,
+    .form__contact .email {
+      margin-top: 10px;
+      display: block;
+    }
+
+    .form__time .timezone input,
+    .form__time .email input,
+    .form__contact .timezone input,
+    .form__contact .email input {
+      width: 200px;
+    }
+
+    .section {
+      color: #47536A;
+    }
+
+    .section .box {
+      vertical-align: middle;
+      cursor: default;
+      -webkit-user-select: none;
+      -moz-user-select: none;
       -ms-user-select: none;
-          user-select: none;
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 900;
-  height: 20px;
-  width: 20px;
-  line-height: 20px;
-  border-radius: 50px;
-  border: 1px solid #47536A;
-  background-color: #47536A;
-  text-align: center;
-  color: #fff;
-}
-.section span {
-  vertical-align: middle;
-  margin-left: 10px;
-}
+      user-select: none;
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 900;
+      height: 20px;
+      width: 20px;
+      line-height: 20px;
+      border-radius: 50px;
+      border: 1px solid #47536A;
+      background-color: #47536A;
+      text-align: center;
+      color: #fff;
+    }
 
-textarea {
-  box-sizing: border-box;
-  font-weight: normal;
-  padding: 5px;
-  margin-top: 20px;
-  border: 1px solid #A4A9C5;
-  border-radius: 3px;
-  outline: none;
-  transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  color: #15A4FA;
-}
-textarea:focus {
-  border-color: #15A4FA;
-}
-textarea::-moz-placeholder {
-  font-weight: 300;
-  color: #A9A9A9;
-}
-textarea:-ms-input-placeholder {
-  font-weight: 300;
-  color: #A9A9A9;
-}
-textarea::placeholder {
-  font-weight: 300;
-  color: #A9A9A9;
-}
+    .section span {
+      vertical-align: middle;
+      margin-left: 10px;
+    }
 
-select {
-  cursor: pointer;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  display: block;
-  border: 1px solid #A4A9C5;
-  font-size: 0.8rem;
-  padding: 12px 10px;
-  background-color: transparent;
-  color: #15A4FA;
-  outline: none;
-  width: 60%;
-}
-select:active {
-  border-color: #15A4FA;
-}
+    textarea {
+      box-sizing: border-box;
+      font-weight: normal;
+      padding: 5px;
+      margin-top: 20px;
+      border: 1px solid #A4A9C5;
+      border-radius: 3px;
+      outline: none;
+      transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      color: #15A4FA;
+    }
 
-input {
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  background: transparent;
-  border: 1px solid #A4A9C5;
-  border-radius: 3px;
-  outline: none;
-  padding: 10px;
-  transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  color: #15A4FA;
-}
-input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px white inset;
-  -webkit-text-fill-color: #15A4FA;
-}
-input:focus {
-  border-color: #15A4FA;
-}
-input::-moz-placeholder {
-  font-weight: 500;
-  color: #A9A9A9;
-}
-input:-ms-input-placeholder {
-  font-weight: 500;
-  color: #A9A9A9;
-}
-input::placeholder {
-  font-weight: 500;
-  color: #A9A9A9;
-}
+    textarea:focus {
+      border-color: #15A4FA;
+    }
 
-input[type=date] {
-  text-transform: uppercase;
-}
+    textarea::-moz-placeholder {
+      font-weight: 300;
+      color: #A9A9A9;
+    }
 
-.form__confirmation {
-  padding: 10px 55px;
-}
+    textarea:-ms-input-placeholder {
+      font-weight: 300;
+      color: #A9A9A9;
+    }
 
-button {
-  font-size: 12px;
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 1px;
-  background-color: #15A4FA;
-  border: 1px solid #DADDE8;
-  color: #fff;
-  padding: 18px;
-  border-radius: 5px;
-  outline: none;
-  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  left: 350px;
-  margin-bottom: 20px;
-}
-button:hover {
-  background-color: #1293e1;
-}
-button:active {
-  background-color: #1083c8;
-}
-        </style>
+    textarea::placeholder {
+      font-weight: 300;
+      color: #A9A9A9;
+    }
 
-    </head>
+    select {
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      display: block;
+      border: 1px solid #A4A9C5;
+      font-size: 0.8rem;
+      padding: 12px 10px;
+      background-color: transparent;
+      color: #15A4FA;
+      outline: none;
+      width: 60%;
+    }
 
-    <body>
-        <!------------------------------>
-        <!-- Your HTML Layout go here -->
-        <!------------------------------>
+    select:active {
+      border-color: #15A4FA;
+    }
 
-        <nav id="navbarPlaceholder"></nav>
+    input {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      background: transparent;
+      border: 1px solid #A4A9C5;
+      border-radius: 3px;
+      outline: none;
+      padding: 10px;
+      transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      color: #15A4FA;
+    }
 
-        <div class="container">
-            <div class="card">
-                <div class="form__name">
-                    Scheduling Setting
-                </div>
-                <div class="time__container">
-                    <div class="section">
-                        <div class="box">
-                            1
-                        </div><span>Date &amp; Time</span>
-                    </div>
-                    <form action="" class="form__time">
-                        <div class="date">
-                            <label for="date">Date</label> <input id="date" type="date" required>
-                        </div>
-                        <div class="time">
-                            <label for="time">Time</label> <input id="time" type="time" required>
-                        </div>
-                        <div class="timezone">
-                            <label for="timezone">Timezone</label> <select name="timezone">
-                                    <option value="-12">
-                                        (GMT -12:00) Eniwetok, Kwajalein
-                                    </option>
-                                    <option value="-11">
-                                        (GMT -11:00) Midway Island, Samoa
-                                    </option>
-                                    <option value="-10">
-                                        (GMT -10:00) Hawaii
-                                    </option>
-                                    <option value="-9">
-                                        (GMT -9:00) Alaska
-                                    </option>
-                                    <option value="-8">
-                                        (GMT -8:00) Pacific Time (US &amp; Canada)
-                                    </option>
-                                    <option value="-7">
-                                        (GMT -7:00) Mountain Time (US &amp; Canada)
-                                    </option>
-                                    <option value="-6">
-                                        (GMT -6:00) Central Time (US &amp; Canada),
-                                        Mexico City
-                                    </option>
-                                    <option value="-5">
-                                        (GMT -5:00) Eastern Time (US &amp; Canada),
-                                        Bogota, Lima
-                                    </option>
-                                    <option value="-4.5">
-                                        (GMT -4:30) Caracas
-                                    </option>
-                                    <option value="-4">
-                                        (GMT -4:00) Atlantic Time (Canada), La Paz,
-                                        Santiago
-                                    </option>
-                                    <option value="-3.5">
-                                        (GMT -3:30) Newfoundland
-                                    </option>
-                                    <option value="-3">
-                                        (GMT -3:00) Brazil, Buenos Aires, Georgetown
-                                    </option>
-                                    <option value="-2">
-                                        (GMT -2:00) Mid-Atlantic
-                                    </option>
-                                    <option value="-1">
-                                        (GMT -1:00 hour) Azores, Cape Verde Islands
-                                    </option>
-                                    <option selected="selected" value="0">
-                                        (GMT) Western Europe Time, London, Lisbon,
-                                        Casablanca, Greenwich
-                                    </option>
-                                    <option value="1">
-                                        (GMT +1:00 hour) Brussels, Copenhagen, Madrid,
-                                        Paris
-                                    </option>
-                                    <option value="2">
-                                        (GMT +2:00) Kaliningrad, South Africa, Cairo
-                                    </option>
-                                    <option value="3">
-                                        (GMT +3:00) Baghdad, Riyadh, Moscow, St.
-                                        Petersburg
-                                    </option>
-                                    <option value="3.5">
-                                        (GMT +3:30) Tehran
-                                    </option>
-                                    <option value="4">
-                                        (GMT +4:00) Abu Dhabi, Muscat, Yerevan, Baku,
-                                        Tbilisi
-                                    </option>
-                                    <option value="4.5">
-                                        (GMT +4:30) Kabul
-                                    </option>
-                                    <option value="5">
-                                        (GMT +5:00) Ekaterinburg, Islamabad, Karachi,
-                                        Tashkent
-                                    </option>
-                                    <option value="5.5">
-                                        (GMT +5:30) Mumbai, Kolkata, Chennai, New Delhi
-                                    </option>
-                                    <option value="5.75">
-                                        (GMT +5:45) Kathmandu
-                                    </option>
-                                    <option value="6">
-                                        (GMT +6:00) Almaty, Dhaka, Colombo
-                                    </option>
-                                    <option value="6.5">
-                                        (GMT +6:30) Yangon, Cocos Islands
-                                    </option>
-                                    <option value="7">
-                                        (GMT +7:00) Bangkok, Hanoi, Jakarta
-                                    </option>
-                                    <option value="8">
-                                        (GMT +8:00) Beijing, Perth, Singapore, Hong
-                                        Kong
-                                    </option>
-                                    <option value="9">
-                                        (GMT +9:00) Tokyo, Seoul, Osaka, Sapporo,
-                                        Yakutsk
-                                    </option>
-                                    <option value="9.5">
-                                        (GMT +9:30) Adelaide, Darwin
-                                    </option>
-                                    <option value="10">
-                                        (GMT +10:00) Eastern Australia, Guam,
-                                        Vladivostok
-                                    </option>
-                                    <option value="11">
-                                        (GMT +11:00) Magadan, Solomon Islands, New
-                                        Caledonia
-                                    </option>
-                                    <option value="12">
-                                        (GMT +12:00) Auckland, Wellington, Fiji,
-                                        Kamchatka
-                                    </option>
-                                </select>
-                        </div>
-                    </form>
-                </div>
-                <div class="message__container">
-                    <div class="section">
-                        <div class="box">
-                            2
-                        </div><span>Your Schedule Note</span>
-                    </div>
-                    <textarea placeholder="e.g. Please do .. Also, .." cols="50" rows="5"></textarea>
-                </div>
-                <div class="contact__container">
-                    <div class="section">
-                        <div class="box">
-                            3
-                        </div><span>Route Information</span>
-                    </div>
-                    <form action="" class="form__contact">
-                        <div class="cname">
-                            <label for="cname">Your destination</label> <input placeholder="3700 Willingdon Ave, Burnay" id="cname" type="text">
-                        </div>
-                        <div class="cnum">
-                            <label for="cnum">Post Code</label> <input id="postCode" type="text" placeholder = "V5G 3H2">
-                            <span id="result"></span>
-                        </div>
-                        <div class="timezone">
-                            <label for="timezone">Trip Mode</label> <select name="timezone">
-                                    <option value="-12">
-                                        Drive
-                                    </option>
-                                    <option value="-11">
-                                        Bike
-                                    </option>
-                                    <option value="-10">
-                                        Bus & SkyTrain
-                                    </option>
-                        </div>
-                    </form>
-                </div>
-                <div class="form__confirmation">
-                    <button>Confirm Information</button>
-                </div>
-            </div>
+    input:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0px 1000px white inset;
+      -webkit-text-fill-color: #15A4FA;
+    }
+
+    input:focus {
+      border-color: #15A4FA;
+    }
+
+    input::-moz-placeholder {
+      font-weight: 500;
+      color: #A9A9A9;
+    }
+
+    input:-ms-input-placeholder {
+      font-weight: 500;
+      color: #A9A9A9;
+    }
+
+    input::placeholder {
+      font-weight: 500;
+      color: #A9A9A9;
+    }
+
+    input[type=date] {
+      text-transform: uppercase;
+    }
+
+    .form__confirmation {
+      padding: 10px 55px;
+    }
+
+    button {
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background-color: #15A4FA;
+      border: 1px solid #DADDE8;
+      color: #fff;
+      padding: 18px;
+      border-radius: 5px;
+      outline: none;
+      transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      left: 200px;
+      margin-bottom: 20px;
+    }
+
+    button:hover {
+      background-color: #1293e1;
+    }
+
+    button:active {
+      background-color: #1083c8;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!------------------------------>
+  <!-- Your HTML Layout go here -->
+  <!------------------------------>
+
+  <nav id="navbarPlaceholder"></nav>
+  <div class="container">
+    <h1 class="form_name">Your Schedules</h1>
+  </div>
+  <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add</button>
+  <div id="id01" class="modal">
+    <div class="container">
+      <div class="card">
+        <div class="form__name">
+          Scheduling Setting
         </div>
+        <div class="time__container">
+          <div class="section">
+            <div class="box">
+              1
+            </div><span>Date &amp; Time</span>
+          </div>
+          <form action="" class="form__time" method="get">
+            <div class="date">
+              <label for="date">Date</label> <input id="date" type="date" required>
+            </div>
+            <div class="time">
+              <label for="time">Time</label> <input id="time" type="time" required>
+            </div>
+            <div class="timezone">
+              <label for="timezone">Timezone</label> <select name="timezone">
+                <option value="-12">
+                  (GMT -12:00) Eniwetok, Kwajalein
+                </option>
+                <option value="-11">
+                  (GMT -11:00) Midway Island, Samoa
+                </option>
+                <option value="-10">
+                  (GMT -10:00) Hawaii
+                </option>
+                <option value="-9">
+                  (GMT -9:00) Alaska
+                </option>
+                <option value="-8">
+                  (GMT -8:00) Pacific Time (US &amp; Canada)
+                </option>
+                <option value="-7">
+                  (GMT -7:00) Mountain Time (US &amp; Canada)
+                </option>
+                <option value="-6">
+                  (GMT -6:00) Central Time (US &amp; Canada),
+                  Mexico City
+                </option>
+                <option value="-5">
+                  (GMT -5:00) Eastern Time (US &amp; Canada),
+                  Bogota, Lima
+                </option>
+                <option value="-4.5">
+                  (GMT -4:30) Caracas
+                </option>
+                <option value="-4">
+                  (GMT -4:00) Atlantic Time (Canada), La Paz,
+                  Santiago
+                </option>
+                <option value="-3.5">
+                  (GMT -3:30) Newfoundland
+                </option>
+                <option value="-3">
+                  (GMT -3:00) Brazil, Buenos Aires, Georgetown
+                </option>
+                <option value="-2">
+                  (GMT -2:00) Mid-Atlantic
+                </option>
+                <option value="-1">
+                  (GMT -1:00 hour) Azores, Cape Verde Islands
+                </option>
+                <option selected="selected" value="0">
+                  (GMT) Western Europe Time, London, Lisbon,
+                  Casablanca, Greenwich
+                </option>
+                <option value="1">
+                  (GMT +1:00 hour) Brussels, Copenhagen, Madrid,
+                  Paris
+                </option>
+                <option value="2">
+                  (GMT +2:00) Kaliningrad, South Africa, Cairo
+                </option>
+                <option value="3">
+                  (GMT +3:00) Baghdad, Riyadh, Moscow, St.
+                  Petersburg
+                </option>
+                <option value="3.5">
+                  (GMT +3:30) Tehran
+                </option>
+                <option value="4">
+                  (GMT +4:00) Abu Dhabi, Muscat, Yerevan, Baku,
+                  Tbilisi
+                </option>
+                <option value="4.5">
+                  (GMT +4:30) Kabul
+                </option>
+                <option value="5">
+                  (GMT +5:00) Ekaterinburg, Islamabad, Karachi,
+                  Tashkent
+                </option>
+                <option value="5.5">
+                  (GMT +5:30) Mumbai, Kolkata, Chennai, New Delhi
+                </option>
+                <option value="5.75">
+                  (GMT +5:45) Kathmandu
+                </option>
+                <option value="6">
+                  (GMT +6:00) Almaty, Dhaka, Colombo
+                </option>
+                <option value="6.5">
+                  (GMT +6:30) Yangon, Cocos Islands
+                </option>
+                <option value="7">
+                  (GMT +7:00) Bangkok, Hanoi, Jakarta
+                </option>
+                <option value="8">
+                  (GMT +8:00) Beijing, Perth, Singapore, Hong
+                  Kong
+                </option>
+                <option value="9">
+                  (GMT +9:00) Tokyo, Seoul, Osaka, Sapporo,
+                  Yakutsk
+                </option>
+                <option value="9.5">
+                  (GMT +9:30) Adelaide, Darwin
+                </option>
+                <option value="10">
+                  (GMT +10:00) Eastern Australia, Guam,
+                  Vladivostok
+                </option>
+                <option value="11">
+                  (GMT +11:00) Magadan, Solomon Islands, New
+                  Caledonia
+                </option>
+                <option value="12">
+                  (GMT +12:00) Auckland, Wellington, Fiji,
+                  Kamchatka
+                </option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <form>
+        <div class="message__container">
+          <div class="section">
+            <div class="box">
+              2
+            </div><span>Your Schedule Note</span>
+          </div>
+          <textarea placeholder="e.g. Please do .. Also, .." cols="50" rows="5"></textarea>
+        </div>
+        <div class="form__confirmation">
+          <button type="reset" class="resetbtn">Reset</button>
+          <button type="submit" value="submit">Confirm</button>
+        </div>
+        </form>
+        <div class="contact__container">
+          <div class="section">
+            <div class="box">
+              3
+            </div><span>Route Information</span>
+          </div>
+          <form action="" class="form__contact">
+            <div class="cname">
+              <label for="cname">Your destination</label> <input placeholder="3700 Willingdon Ave, Burnay" id="cname"
+                type="text">
+            </div>
+            <div class="cnum">
+              <label for="cnum">Post Code</label> <input id="postCode" type="text" placeholder="V5G 3H2">
+              <span id="result"></span>
+            </div>
+            <div class="timezone">
+              <label for="timezone">Trip Mode</label> <select name="timezone">
+                <option value="-12">
+                  Drive
+                </option>
+                <option value="-11">
+                  Bike
+                </option>
+                <option value="-10">
+                  Bus or SkyTrain
+                </option>
+            </div>
+            <div class="form__confirmation">
+              <button type="submit" value="submit">Add</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <!-- copyright footer -->
-        <footer id="footerPlaceholder"></footer>
+  <!-- copyright footer -->
+  <footer id="footerPlaceholder"></footer>
 
-        <!---------------------------------------------->
-        <!-- Your own JavaScript functions go here    -->
-        <!---------------------------------------------->
+  <script>
 
-        <!-- Link to scripts of your own -->
-        <script src="./js/script.js"></script>
-        <script src="./js/skeleton.js"></script>
+    var modal = document.getElementById('id01');
 
-    </body>
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+  <!---------------------------------------------->
+  <!-- Your own JavaScript functions go here    -->
+  <!---------------------------------------------->
+
+  <!-- Link to scripts of your own -->
+  <script src="./js/script.js"></script>
+  <script src="./js/skeleton.js"></script>
+
+</body>
 
 </html>
