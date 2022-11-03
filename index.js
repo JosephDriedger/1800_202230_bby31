@@ -55,7 +55,7 @@ app.get("/routes", function (req, res) {
 });
 
 // Schedule Page
-app.get("/profile", function (req, res) {
+app.get("/schedule", function (req, res) {
     let doc = fs.readFileSync("./app/html/dropdown/schedule.html", "utf8");
     res.send(doc);
 });
