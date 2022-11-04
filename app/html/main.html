@@ -33,7 +33,27 @@
     <link rel="stylesheet" href="./css/style.css" />
 
     <style>
-       
+        
+        .mapholder {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        iframe {
+            width: 100%;
+            height: 500px;
+            filter: invert(100%);
+        }
+
+        h1 {
+            color: #333;
+            margin: 0 auto;
+            font-size: medium;
+        }
     </style>
 
 </head>
@@ -58,7 +78,15 @@
             </div>
         </template>
     </div>
-
+    
+    <div class ="mapholder">
+        <h1>Search your desitination</h1>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d83342.30152380453!2d-123.1337276!3d49.2489744!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54867721fd53fee5%3A0x355ab207647a109d!2sBritish%20Columbia%20Institute%20of%20Technology!5e0!3m2!1sen!2sca!4v1667579882105!5m2!1sen!2sca"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
     <!-- copyright footer -->
     <footer id="footerPlaceholder"></footer>
 
