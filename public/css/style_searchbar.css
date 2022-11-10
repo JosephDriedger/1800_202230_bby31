@@ -1,8 +1,3 @@
-
-
-
-
-/*Search Bars*/
 body{
 
     background: #d1d5db;
@@ -57,4 +52,8 @@ body{
 
     box-shadow: none;
     border:none;
+}
+.container-Search {
+    padding: 0;
+    display: inline;
 }
