@@ -47,7 +47,7 @@
     <div class="container">
       <div class="card">
         <div class="form__name">
-          Scheduling Setting
+          Set Schedule
         </div>
         <div class="time__container">
           <div class="section">
@@ -199,45 +199,45 @@
           <div class="form__confirmation">
             <button type="reset" class="btn btn-info">Reset</button>
             <button type="button" class="btn btn-info" onclick="saveUserNote()">Confirm</button>
-          </div>        
-        </form>
-        <div class="contact__container">
-          <div class="section">
-            <div class="box">
-              3
-            </div>
-            <span>Route Information</span>
           </div>
-          <form action="" class="form__contact">
-            <fieldset>
-              <div class="cname">
-                <label for="cname">Your destination</label> <input placeholder="3700 Willingdon Ave, Burnaby"
-                  id="address" type="text">
-              </div>
-              <div class="cnum">
-                <label for="cnum">Post Code</label> <input id="postCode" type="text" placeholder="V5G 3H2">
-                <span id="result"></span>
-              </div>
-              <div class="cname">
-                <label for="cname">Trip Mode</label> <select name="timezone" id="tripCode">
-                  <option value="-12">
-                    Drive
-                  </option>
-                  <option value="-11">
-                    Bike
-                  </option>
-                  <option value="-10">
-                    Bus or SkyTrain
-                  </option>
-              </div>
-            </fieldset>
-            <div class="form__confirmation">
-              <button type="button" class="btn btn-info" onclick="saveUserRoute()">Save</button>
-            </div>
-          </form>
+    </form>
+    <div class="contact__container">
+      <div class="section">
+        <div class="box">
+          3
         </div>
+        <span>Route Information</span>
       </div>
+      <form action="" class="form__contact">
+        <fieldset>
+          <div class="cname">
+            <label for="cname">Your destination</label> <input placeholder="3700 Willingdon Ave, Burnaby" id="address"
+              type="text">
+          </div>
+          <div class="cnum">
+            <label for="cnum">Post Code</label> <input id="postCode" type="text" placeholder="V5G 3H2">
+            <span id="result"></span>
+          </div>
+          <div class="cname">
+            <label for="cname">Trip Mode</label> <select name="timezone" id="tripCode">
+              <option value="-12">
+                Drive
+              </option>
+              <option value="-11">
+                Bike
+              </option>
+              <option value="-10">
+                Bus or SkyTrain
+              </option>
+          </div>
+        </fieldset>
+        <div class="form__confirmation">
+          <button type="button" class="btn btn-info" onclick="saveUserRoute()">Save</button>
+        </div>
+      </form>
     </div>
+  </div>
+  </div>
   </div>
 
   <!-- copyright footer -->
@@ -261,6 +261,7 @@
   <!-- Link to scripts of your own -->
   <script src="./js/firebaseAPI_TEAM31.js"></script>
   <script src="./js/skeleton.js"></script>
+  <script src="./js/script.js"></script>
   <script src="./js/schedule.js"></script>
 
 </body>

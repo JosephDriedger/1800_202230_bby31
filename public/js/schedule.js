@@ -1,6 +1,5 @@
 var currentUser;
 
-<<<<<<< HEAD
 function populateInfo() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
@@ -90,7 +89,6 @@ function saveUserRoute() {
         console.log("Saved successfully!");
     })
 }
-=======
 function accessSchedules() {
 
 }
@@ -114,4 +112,3 @@ function addSchedule() {
         document.getElementById('id01').style.display='none';
     })
 }
->>>>>>> 3b3f7bc8e0ff8a369fb0822288352fc8b331c4a6
