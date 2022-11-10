@@ -50,12 +50,12 @@
           Set Schedule
         </div>
         <div class="time__container">
-          <div class="section">
-            <div class="box">
-              1
-            </div><span>Date &amp; Time</span>
-          </div>
-          <form class="form__time" method="get">
+        <form class="form__time" method="get">
+            <div class="section">
+              <div class="box">
+                1
+              </div><span>Date &amp; Time</span>
+            </div>
             <fieldset>
               <div class="date">
                 <label for="date">Date</label> <input id="dateInput" class="form-control" type="date" required>
@@ -180,64 +180,56 @@
                 </select>
               </div>
             </fieldset>
-            <div>
-              <button type="button" class="btn btn-info" onclick="saveUserInfo()">Confirm</button>
+             </div>
+             <fieldset>
+             <div class="message__container">
+            <div class="section">
+              <div class="box">
+                2
+              </div><span>Your Schedule Note</span>
             </div>
-          </form>
-        </div>
-        <form>
+            <textarea id="noteInput" placeholder="e.g. Please do .. Also, .." cols="50" rows="4"></textarea>
+            </div>
+            </fieldset>
+
+          <div class="contact__container">
+          <div class="section">
+            <div class="box">
+              3
+            </div>
+            <span>Route Information</span>
+          </div>
           <fieldset>
-            <div class="message__container">
-              <div class="section">
-                <div class="box">
-                  2
-                </div><span>Your Schedule Note</span>
-              </div>
-              <textarea id="noteInput" placeholder="e.g. Please do .. Also, .." cols="50" rows="4"></textarea>
+            <div class="cname">
+              <label for="cname">Your destination</label> <input placeholder="3700 Willingdon Ave, Burnaby" id="address"
+                type="text">
+            </div>
+            <div class="cnum">
+              <label for="cnum">Post Code</label> <input id="postCode" type="text" placeholder="V5G 3H2">
+              <span id="result"></span>
+            </div>
+            <div class="cnum">
+              <label for="cnum">Trip Mode</label> <select name="timezone" id="tripCode">
+                <option value="-12">
+                  Drive
+                </option>
+                <option value="-11">
+                  Bike
+                </option>
+                <option value="-10">
+                  Bus or SkyTrain
+                </option>
             </div>
           </fieldset>
           <div class="form__confirmation">
             <button type="reset" class="btn btn-info">Reset</button>
-            <button type="button" class="btn btn-info" onclick="saveUserNote()">Confirm</button>
+            <button type="button" class="btn btn-info" onclick="saveSchedule()">Save</button>
           </div>
-    </form>
-    <div class="contact__container">
-      <div class="section">
-        <div class="box">
-          3
+          </div>
+        </form>
         </div>
-        <span>Route Information</span>
       </div>
-      <form action="" class="form__contact">
-        <fieldset>
-          <div class="cname">
-            <label for="cname">Your destination</label> <input placeholder="3700 Willingdon Ave, Burnaby" id="address"
-              type="text">
-          </div>
-          <div class="cnum">
-            <label for="cnum">Post Code</label> <input id="postCode" type="text" placeholder="V5G 3H2">
-            <span id="result"></span>
-          </div>
-          <div class="cname">
-            <label for="cname">Trip Mode</label> <select name="timezone" id="tripCode">
-              <option value="-12">
-                Drive
-              </option>
-              <option value="-11">
-                Bike
-              </option>
-              <option value="-10">
-                Bus or SkyTrain
-              </option>
-          </div>
-        </fieldset>
-        <div class="form__confirmation">
-          <button type="button" class="btn btn-info" onclick="saveUserRoute()">Save</button>
-        </div>
-      </form>
     </div>
-  </div>
-  </div>
   </div>
 
   <!-- copyright footer -->
