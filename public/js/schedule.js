@@ -1,34 +1,33 @@
-var currentUser;
+var currentSchedule;
 
-<<<<<<< HEAD
 function populateInfo() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
         if (user) {
 
             //go to the correct user document by referencing to the user uid
-            currentUser = db.collection("users").doc(user.uid)
+            currentSchedule = db.collection("schedules").doc(user.uid)
             //get the document for current user.
-            currentUser.get()
+            currentSchedule.get()
                 .then(userDoc => {
                     //get the data fields of the user
-                    var userDate = userDoc.data().date;
-                    var userTime = userDoc.data().time;
-                    var userTimeZone = userDoc.data().timezone;
-                    var userNote = userDoc.data().note;
+                    var scheduleDate = userDoc.data().date;
+                    var scheduleTime = userDoc.data().time;
+                    var scheduleTimeZone = userDoc.data().timezone;
+                    var scheduleNotes = userDoc.data().note;
 
                     //if the data fields are not empty, then write them in to the form.
-                    if (userDate != null) {
-                        document.getElementById("dateInput").value = userDate;
+                    if (scheduleDate != null) {
+                        document.getElementById("dateInput").value = scheduleDate;
                     }
-                    if (userTime != null) {
-                        document.getElementById("timeInput").value = userTime;
+                    if (scheduleTime != null) {
+                        document.getElementById("timeInput").value = scheduleTime;
                     }
-                    if (userTimeZone != null) {
-                        document.getElementById("timezoneInput").value = userTimeZone;
+                    if (scheduleTimeZone != null) {
+                        document.getElementById("timezoneInput").value = scheduleTimeZone;
                     }
-                    if (userNote != null) {
-                        document.getElementById("noteInput").value = userNote;
+                    if (scheduleNotes != null) {
+                        document.getElementById("noteInput").value = scheduleNotes;
                     }
                     if (userDestination != null) {
                         document.getElementById("address").value = userDestination;
@@ -50,12 +49,12 @@ function populateInfo() {
 //call the function to run it 
 populateInfo();
 
-function saveUserInfo() {
+function saveTimeInfo() {
     userDate = document.getElementById('dateInput').value;
     userTime = document.getElementById('timeInput').value;
     userTimeZone = document.getElementById('timezoneInput').value;
 
-    currentUser.update({
+    currentSchedule.update({
         date: userDate,
         time: userTime,
         timezone: userTimeZone,
@@ -68,7 +67,7 @@ function saveUserInfo() {
 function saveUserNote() {
     userNote = document.getElementById('noteInput').value;
 
-    currentUser.update({
+    currentSchedule.update({
         note: userNote
     })
     .then(() => {
@@ -81,7 +80,7 @@ function saveUserRoute() {
     userPostCode = document.getElementById('postCode').value;
     userTripMode = document.getElementById('tripCode').value;
 
-    currentUser.update({
+    currentSchedule.update({
        Destination: userDestination,
        PostCode: userPostCode,
        TripMode: userTripMode
@@ -90,7 +89,6 @@ function saveUserRoute() {
         console.log("Saved successfully!");
     })
 }
-=======
 function accessSchedules() {
 
 }
@@ -101,17 +99,14 @@ function addSchedule() {
     var timeZone = document.getElementByClass('timezone').value;
     var notes = document.getElementById('scheduleNotes').value;
 
-    currentUser.update({
+    currentSchedule.update({
         date: date,
-        phoneNum: time,
-        city: userCity,
-        province: userProvince,
-        country: userCountry,
-        transport: userTransport
+        time: time,
+        timeZone: timeZone,
+        notes: notes
     })
     .then(() => {
         console.log("Document successfully updated!");
         document.getElementById('id01').style.display='none';
     })
 }
->>>>>>> 3b3f7bc8e0ff8a369fb0822288352fc8b331c4a6
