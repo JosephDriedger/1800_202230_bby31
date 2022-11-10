@@ -36,7 +36,7 @@ function populateInfo() {
                         document.getElementById("postCode").value = userPostCode;
                     }
                     if (userTripMode != null) {
-                        document.getElecmentById("tripCode").value = userTripCode;
+                        document.getElementById("tripCode").value = userTripCode;
                     }
                 })
         } else {
