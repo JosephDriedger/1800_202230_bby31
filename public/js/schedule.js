@@ -1,73 +1,47 @@
 var currentSchedule;
 
-function populateInfo() {
+function saveSchedule() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
         if (user) {
 
             //go to the correct user document by referencing to the user uid
-            currentSchedule = db.collection("schedules").doc(user.uid)
+            currentSchedule = db.collection("user").doc(user.uid).collection("events")
             //get the document for current user.
             currentSchedule.get()
                 .then(userDoc => {
                     //get the data fields of the user
-                    var scheduleDate = userDoc.data().date;
-                    var scheduleTime = userDoc.data().time;
-                    var scheduleTimeZone = userDoc.data().timezone;
-                    var scheduleNotes = userDoc.data().notes;
 
-                    //if the data fields are not empty, then write them in to the form.
-                    if (scheduleDate != null) {
-                        document.getElementById("dateInput").value = scheduleDate;
-                    }
-                    if (scheduleTime != null) {
-                        document.getElementById("timeInput").value = scheduleTime;
-                    }
-                    if (scheduleTimeZone != null) {
-                        document.getElementById("timezoneInput").value = scheduleTimeZone;
-                    }
-                    if (scheduleNotes != null) {
-                        document.getElementById("noteInput").value = scheduleNotes;
-                    }
-                    if (userDestination != null) {
-                        document.getElementById("address").value = userDestination;
-                    }
-                    if (userPostCode != null) {
-                        document.getElementById("postCode").value = userPostCode;
-                    }
-                    if (userTripMode != null) {
-                        document.getElementById("tripCode").value = userTripCode;
-                    }
+                    var scheduleDate = document.getElementById('dateInput').value;
+                    var scheduleTime = document.getElementById('timeInput').value;
+                    var scheduleTimeZone = document.getElementById('timezoneInput').value;
+                    var scheduleNotes = document.getElementById('noteInput').value;
+                    var userDestination = document.getElementById('address').value;
+                    var userPostCode = document.getElementById('postCode').value;
+                    var userTripMode = document.getElementById('tripCode').value;
+                    
+                    db.collection("users").doc(user.uid).collection("Schedules")
+                        .add({
+                        date: scheduleDate,
+                        time: scheduleTime,
+                        timezone: scheduleTimeZone,
+                        note: scheduleNotes,
+                        destination: userDestination,
+                        postcode: userPostCode,
+                        tripmode: userTripMode
                 })
-        } else {
-            // No user is signed in.
-            console.log ("No user is signed in");
-        }
-    });
+                .then(() => {
+                    console.log("Saved successfully!");
+                })   
+        })
+    }
+})
 }
 
 //call the function to run it 
-populateInfo();
+saveSchedule();
 
-function saveSchedule() {
-    scheduleDate = document.getElementById('dateInput').value;
-    scheduleTime = document.getElementById('timeInput').value;
-    scheduleTimeZone = document.getElementById('timezoneInput').value;
-    scheduleNotes = document.getElementById('noteInput').value;
-    userDestination = document.getElementById('address').value;
-    userPostCode = document.getElementById('postCode').value;
-    userTripMode = document.getElementById('tripCode').value;
 
-    currentSchedule.update({
-        date: scheduleDate,
-        time: scheduleTime,
-        timezone: scheduleTimeZone,
-        note: scheduleNote,
-    })
-    .then(() => {
-        console.log("Saved successfully!");
-    })
-}
 
 function accessSchedules() {
 
