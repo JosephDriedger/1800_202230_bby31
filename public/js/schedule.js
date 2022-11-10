@@ -1,5 +1,6 @@
 var currentUser;
 
+<<<<<<< HEAD
 function populateInfo() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
@@ -89,3 +90,28 @@ function saveUserRoute() {
         console.log("Saved successfully!");
     })
 }
+=======
+function accessSchedules() {
+
+}
+
+function addSchedule() {
+    var date = document.getElementByClass('date').value;
+    var time = document.getElementByClass('time').value;
+    var timeZone = document.getElementByClass('timezone').value;
+    var notes = document.getElementById('scheduleNotes').value;
+
+    currentUser.update({
+        date: date,
+        phoneNum: time,
+        city: userCity,
+        province: userProvince,
+        country: userCountry,
+        transport: userTransport
+    })
+    .then(() => {
+        console.log("Document successfully updated!");
+        document.getElementById('id01').style.display='none';
+    })
+}
+>>>>>>> 3b3f7bc8e0ff8a369fb0822288352fc8b331c4a6
