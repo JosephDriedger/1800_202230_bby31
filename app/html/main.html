@@ -29,11 +29,14 @@
 
     <!-- Other libraries go here -->
     <script src="https://kit.fontawesome.com/6c79df5a80.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css">
+    
 
     <!-- Link to styles of your own -->
 
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/style_stylebar.css">
+    <link rel="stylesheet" href="./css/style_searchbar.css">
+    <link rel="stylesheet" href="./css/style_map.css">
 
 
     <style>
@@ -73,11 +76,7 @@
     
     
     <div class ="mapholder">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d83342.30152380453!2d-123.1337276!3d49.2489744!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54867721fd53fee5%3A0x355ab207647a109d!2sBritish%20Columbia%20Institute%20of%20Technology!5e0!3m2!1sen!2sca!4v1667579882105!5m2!1sen!2sca"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+        <div id="map"></div>
     </div>
 
     <!-- Route liist, floats above map -->
@@ -112,6 +111,9 @@
     <script src="./js/skeleton.js"></script>
     <script src="./js/searchbar.js"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/osm-map.js"></script>
+    <script src="js/webmap.js"></script>
+
 </body>
 
 </html>
