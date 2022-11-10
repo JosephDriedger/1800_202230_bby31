@@ -1,5 +1,8 @@
 // Import the leaflet package
 var L = require('leaflet');
+var div = L.DomUtil.get('searchbarPlaceholder'); // this must be an ID, not class!
+L.DomEvent.on(div, 'mousewheel', L.DomEvent.stopPropagation);
+L.DomEvent.on(div, 'click', L.DomEvent.stopPropagation);
 
 // Creates a leaflet map binded to an html <div> with id "map"
 // setView will set the initial map view to the location at coordinates
