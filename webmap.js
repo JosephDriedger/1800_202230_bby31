@@ -18,13 +18,12 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
 }).addTo(map);
 
 // Adds a popup marker to the webmap for GGL address
-L.circleMarker([43.659752, -79.378161]).addTo(map)
-	.bindPopup(
-		'MON 304<br>' + 
-		'Monetary Times Building<br>' +
-		'341 Victoria Street<br>' + 
-		'Toronto, Ontario, Canada<br>' +
-		'M5B 2K3<br><br>' + 
-		'Tel: 416-9795000 Ext. 5192'
+L.circleMarker([49.25006, -123.00202]).addTo(map)
+	.bindPopup( 
+		'BCIT Burnaby Campus<br>' +
+		'White Ave<br>' + 
+		'Vancouver, Canada<br>' +
+		'V5G 3H23<br><br>' + 
+		'Tel: (604) 434-5734'
 	)
 	.openPopup(); 
