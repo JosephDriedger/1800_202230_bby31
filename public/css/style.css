@@ -1,8 +1,4 @@
-
-
-
-
-/*Search Bars*/
+/* Search Bars */
 body{
 
     background: #d1d5db;
@@ -54,7 +50,13 @@ body{
 }
 
 .form-input:focus{
-
     box-shadow: none;
     border:none;
+}
+
+/* Navbar-Notifications */
+#notify-num {
+    background-color: red;
+    color: white;
+    padding: 8px;
 }

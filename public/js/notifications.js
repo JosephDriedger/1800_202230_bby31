@@ -1,5 +1,15 @@
 var currentUser;
 
+// Number of Notifications
+var numOfNotifications = 0;
+
+// Display Message if No Notifications are Available.
+if (numOfNotifications == 0) {
+    document.getElementById("notification-none").innerHTML = "No Notifications Available";
+} else {
+    document.getElementById("notification-none").innerHTML = "";
+}
+
 function loadNotificationSettings() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -40,7 +50,6 @@ function saveNotifications() {
 function postNotifications() {
     let notificationTemplate = document.getElementById("notificationTemplate");
     let notificationGroup = document.getElementById("notification-group");
-    let numOfNotifications = 0;
 
     db.collection("users").doc(user.uid).collection("Notifications")
         .orderBy("daysSinceIncident")
@@ -69,13 +78,13 @@ function postNotifications() {
                 } else {
                     testNotificationCard.querySelector('.notify-suggestion').innerHTML = "No suggestions available.";
                 }
+
+                notificationGroup.appendChild(testNotificationCard);
+
+                numOfNotifications++;
             })
         })
-    
-    // Display Message if No Notifications are Available.
-    if (numOfNotifications == 0) {
-        document.getElementById("notification-none").innerHTML = "No Notifications Available";
-    } else {
-        document.getElementById("notification-none").innerHTML = "";
-    }
+    document.getElementById("notify-num").innerHTML = numOfNotifications;
 }
+
+// postNotifications();
