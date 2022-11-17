@@ -6,7 +6,7 @@ function saveSchedule() {
         if (user) {
 
             //go to the correct user document by referencing to the user uid
-            currentSchedule = db.collection("user").doc(user.uid).collection("events")
+            currentSchedule = db.collection("users").doc(user.uid).collection("events");
             //get the document for current user.
             currentSchedule.get()
                 .then(userDoc => {
@@ -33,9 +33,9 @@ function saveSchedule() {
                 .then(() => {
                     console.log("Saved successfully!");
                 })   
-        })
-    }
-})
+            })
+        }
+    })
 }
 
 //call the function to run it 
