@@ -1,18 +1,37 @@
-// Initialize leaflet.js
-var L = require('leaflet');
-
-// Initialize the map
-var map = L.map('map', {
-  scrollWheelZoom: true
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+      getBookmarks(user)
+  } else {
+      console.log("No user is signed in");
+  }
 });
 
-// Set the position and zoom level of the map
-map.setView([49.70, 13.35], 7);
+function getBookmarks(user) {
+  db.collection("users").doc(user.uid).get()
+      .db.collection("Schedules")
+        .then(allRoutes => {
+          allHikes.forEach(doc => {
+            var hikeName = doc.data().name; //gets the name field
+            var hikeID = doc.data().code; //gets the unique ID field
+            var hikeLength = doc.data().length; //gets the length field
+            let testHikeCard = hikeCardTemplate.content.cloneNode(true);
+            testHikeCard.querySelector('.card-title').innerHTML = hikeName;     //equiv getElementByClassName
+            testHikeCard.querySelector('.card-length').innerHTML = hikeLength;  //equiv getElementByClassName
+            
 
-// Initialize the base layer
-var OpenStreetMap_Mapnik = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreeeetMap</a> contributors'
-});
+            testHikeCard.querySelector('.card-length').innerHTML = 
+            "Length: " + doc.data().length + " km <br>" +
+            "Duration: " + doc.data().length_time + "min <br>" +
+            "Last updated: " + doc.data().last_updated.toDate(); 
 
-OpenStreetMap_Mapnik.addTo(map);
+            testHikeCard.querySelector('a').onclick = () => setHikeData(hikeID);//equiv getElementByTagName
+
+            testHikeCard.querySelector('i').id = 'save-' + hikeID;
+            testHikeCard.querySelector('i').onclick = () => saveBookmark(hikeID);
+
+
+            testHikeCard.querySelector('img').src = `./images/${hikeID}.jpg`;   //equiv getElementByTagName
+            testHikeCard.querySelector('.read-more').href = "eachHike.html?hikeName="+hikeName +"&id=" + hikeID;
+            hikeCardGroup.appendChild(testHikeCard);
+        })
+})};
