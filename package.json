@@ -7,6 +7,8 @@
     "build": "browserify webmap.js -o public/js/webmap.js && copy node_modules\\leaflet\\dist\\leaflet.css public\\css\\leaflet.css"
   },
   "dependencies": {
+    "@google-cloud/functions": "^2.2.3",
+    "@googlemaps/google-maps-services-js": "^3.3.16",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
