@@ -40,7 +40,7 @@ function populateInfo() {
                 })
         } else {
             // No user is signed in.
-            console.log ("No user is signed in");
+            window.location.href = "./login";
         }
     });
 }
@@ -48,8 +48,9 @@ function populateInfo() {
 function editUserInfo() {
     //Enable the form fields
     document.getElementById('personalInfoFields').disabled = false;
- }
+}
 
+// Save User Information
 function saveUserInfo() {
     userName = document.getElementById('nameInput').value;
     userPhoneNum = document.getElementById('phoneNumInput').value;
