@@ -1,18 +1,16 @@
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
-      getBookmarks(user)
+      getRoutes(user)
   } else {
       console.log("No user is signed in");
   }
 });
 
-function getBookmarks(user) {
+function getRoutes(user) {
   db.collection("users").doc(user.uid)
-      .collection("trips").get()
+      .collection("routes").get()
         .then(allRoutes => {
           allRoutes.forEach(doc => {
-
-            
             // Time of day in UTC+0
             var tripTime = doc.data().time; 
             // Destination Address
@@ -83,4 +81,8 @@ function showmodal() {
 
 function hidemodal() {
   myModal.hide()
+}
+
+function saveRoute() {
+  db.collection("users").doc(user.uid).collection("routes")
 }
