@@ -31,6 +31,7 @@
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/6c79df5a80.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -40,6 +41,41 @@
     <!------------------------------>
 
     <nav id="navbarPlaceholder"></nav>
+
+    <div class="container">
+
+        <h2 class="float-left">Routes</h2>
+        <button type="button" onclick="showmodal()">
+            Launch demo modal
+        </button>
+
+        
+
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" id="addroute" role="document">
+              
+            </div>
+        </div>
+
+
+        <div id="routeList routeCardGroup">
+            <template id="routeCardTemplate">
+                <div class="container">
+                    <div class="card py-2 mx-2" style="width: 1fr">
+                        <div class="card-body">
+                            <h5 class="card-title">Location</h5>
+                            <p class="card-text" class="route-info-1"></p>
+                            <p class="card-text" class="route-info-2"></p> 
+                            <p class="card-text" class="route-info-3"></p>
+                            <p class="card-text"text>test</p>
+                            <a href='#' class="btn btn-primary">Go</a>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+    </div>
    
 
     <!-- copyright footer -->
@@ -53,6 +89,7 @@
     <script src="./js/firebaseAPI_TEAM31.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/skeleton.js"></script>
+    <script src="./js/routes.js"></script>
 </body>
 
 </html>

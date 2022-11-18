@@ -7,6 +7,8 @@ const app = express();
 app.use(express.json());
 const fs = require("fs");
 
+  
+
 // just like a simple web server like Apache web server
 // we are mapping file system paths to the app's virtual paths
 app.use("/js", express.static("./public/js"));

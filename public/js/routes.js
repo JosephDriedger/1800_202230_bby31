@@ -1,27 +1,86 @@
-function displayCards(collection) {
-    let cardTemplate = document.getElementById("hikeCardTemplate");
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+      getBookmarks(user)
+  } else {
+      console.log("No user is signed in");
+  }
+});
 
-    db.collection(collection).get()
-        .then(snap => {
-            //var i = 1;  //if you want to use commented out section
-            snap.forEach(doc => { //iterate thru each doc
-                var title = doc.data().name;        // get value of the "name" key
-                var details = doc.data().details;   // get value of the "details" key
-								var routeID = doc.data().code;    //get unique ID to each hike to be used for fetching right image
-                let newcard = cardTemplate.content.cloneNode(true);
+function getBookmarks(user) {
+  db.collection("users").doc(user.uid)
+      .collection("trips").get()
+        .then(allRoutes => {
+          allRoutes.forEach(doc => {
 
-                //update title and text and image
-                newcard.querySelector('.card-title').innerHTML = title;
-                newcard.querySelector('.card-text').innerHTML = details;
+            
+            // Time of day in UTC+0
+            var tripTime = doc.data().time; 
+            // Destination Address
+            var tripDestAdress = doc.data().destinationaddress;
+            // Destination Name
+            var tripDestName = doc.data().destinationname;
+            // Destination Location lat+long
+            var tripDestLocation = doc.data().destinationlocation
+            // Departing Point Adress
+            var tripOrginAddress = doc.data().orginaddress;
+            // Departing Point lat+long
+            var tripOrginLocation = doc.data().orginlocation;
+            // Mode of trip
+            var tripMode = doc.data().tripmode;
+            // Array that contains data about each trip method
+            var tripData = doc.data().tripdata;
+            
+            if(!tripTime || !tripDestAdress || !tripDestLocation || !tripOrginAddress || !tripOrginLocation || !tripMode || !tripData) {
+              console.log("Important Value missing, skipping value");
+            } else {
 
-                //give unique ids to all elements for future use
-                // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
-                // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
-                // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
+              console.log(tripTime);
+              console.log(tripDestAdress);
+              console.log(tripDestName);
+              console.log(tripDestLocation);
+              console.log(tripOrginAddress);
+              console.log(tripOrginLocation);
+              console.log(tripMode);
+              console.log(tripData);
 
-                //attach to gallery
-                document.getElementById(collection + "-go-here").appendChild(newcard);
-                //i++;   //if you want to use commented out section
-            })
+              let testRouteCard = routeCardTemplate.content.cloneNode(true);
+              testRouteCard.querySelector('.card-title').innerHTML = tripDate;     //equiv getElementByClassName
+              testRouteCard.querySelector('.card-length').innerHTML = tripDest;  //equiv getElementByClassName
+              
+
+              // testHikeCard.querySelector('.card-length').innerHTML = 
+              // "Length: " + doc.data().length + " km <br>" +
+              // "Duration: " + doc.data().length_time + "min <br>" +
+              // "Last updated: " + doc.data().last_updated.toDate(); 
+
+              // testHikeCard.querySelector('a').onclick = () => setHikeData(hikeID);//equiv getElementByTagName
+
+              // testHikeCard.querySelector('i').id = 'save-' + hikeID;
+              // testHikeCard.querySelector('i').onclick = () => saveBookmark(hikeID);
+
+
+              // testHikeCard.querySelector('img').src = `./images/${hikeID}.jpg`;   //equiv getElementByTagName
+              // testHikeCard.querySelector('.read-more').href = "eachHike.html?hikeName="+hikeName +"&id=" + hikeID;
+              // hikeCardGroup.appendChild(testHikeCard);
+            }
         })
+})};
+
+function loadSkeleton(){
+  console.log($('#addroute').load('./text/addroute.html'));;
+}
+loadSkeleton();  //invoke the function
+
+var myModal = new bootstrap.Modal(document.getElementById('exampleModalLong'))
+
+function togglemodal() {
+  myModal.toggle()
+}
+
+function showmodal() {
+  myModal.show()
+}
+
+function hidemodal() {
+  myModal.hide()
 }

@@ -39,6 +39,13 @@
     </head>
 
     <body>
+        <template id="notificationTemplate">
+            <div class="notification">
+                <h2 class="notify-head">URGENT NOTIFICATION</h2>
+                <p class="notify-description">notification placeholder</p>
+                <p class="notify-suggestion">notification placeholder</p>
+            </div>
+        </template>
         <!------------------------------>
         <!-- Your HTML Layout go here -->
         <!------------------------------>
@@ -48,14 +55,21 @@
 
         <!-- content -->
         <h1>Notifications</h1>
-        <input type="checkbox" id="turnOnNotifications" class="switch" onclick=""/>
+        <form>
+            <input type="checkbox" id="turnOnNotifications" class="switch" onclick="saveNotifications()"/>
             <label for="turnOnNotifications" class="toggle">
                 <h2>Enable Push Notifications</h2>
             </label>
-        <form disabled>
-            
-            <h2></h2>
         </form>
+
+        <main>
+            <h1>Recent Activity</h1>
+            <div class="container">
+                <div id="notification-group" class="row row-cols-auto">
+                </div>
+                <p id="notification-none"></p>
+            </div>
+        </main>
         
 
         <!-- copyright footer -->
@@ -69,6 +83,7 @@
         <script src="./js/firebaseAPI_TEAM31.js"></script>
         <script src="./js/script.js"></script>
         <script src="./js/skeleton.js"></script>
+        <script src="./js/notifications.js"></script>
     </body>
 
 </html>
