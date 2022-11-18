@@ -56,11 +56,6 @@ function saveSchedule() {
     })
 }
 
-//call the function to run it 
-saveSchedule();
-
-
-
 function accessSchedules() {
 
 }
@@ -70,6 +65,7 @@ function addSchedule() {
     var time = document.getElementByClass('time').value;
     var timeZone = document.getElementByClass('timezone').value;
     var notes = document.getElementById('scheduleNotes').value;
+
 
     currentSchedule.update({
         date: date,
@@ -89,35 +85,34 @@ function viewSchedule() {
     let commuteSchedule = document.getElementById("viewScheduleform");
     let commuteGroup = document.getElementById("viewScheduleGroup");
 
-  
-
-    db.collection("users").doc(user.uid).collection("Schedules")
-        .limit(10)
-        .get()
-        .then(allviews => {
-            Views = allviews.docs
-            console.log(Views);
-            Views.forEach(doc => {
-                var date = doc.data().date; 
-                var time = doc.data().time; 
-                var timezone = doc.data().timezone;
-                var note = doc.data().note; 
-                var address = doc.data().address;
-                var tripCode = doc.data().tripmode;
-                var postCode = doc.data().postCode
-
-                let checkSchedule = commuteSchedule.content.cloneNode(true);
-                checkSchedule.querySelector('date').innerHTML = date;
-                checkSchedule.querySelector('time').innerHTML = time;
-                checkSchedule.querySelector('timezone').innerHTML = timezone;
-                checkSchedule.querySelector('note').innerHTML = note;
-                checkSchedule.querySelector('address').innerHTML = address;
-                checkSchedule.querySelector('postCode').innerHTML = postCode;
-                checkSchedule.querySelector('tripCode').innerHTML = tripCode;
-
-                commuteGroup.appendChildcheckSchedule});
-        }) 
-
- }
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            db.collection("users").doc(user.uid).collection("Schedules")
+            .orderBy("date")
+            .get()
+            .then(allviews => {
+                allviews.forEach(doc => {
+                    var date = doc.data().date; 
+                    var time = doc.data().time; 
+                    var timezone = doc.data().timezone;
+                    var note = doc.data().note; 
+                    var address = doc.data().address;
+                    var tripCode = doc.data().tripmode;
+                    var postCode = doc.data().postCode
+    
+                    let checkSchedule = commuteSchedule.content.cloneNode(true);
+                    checkSchedule.querySelector('date').innerHTML = date;
+                    checkSchedule.querySelector('time').innerHTML = time;
+                    checkSchedule.querySelector('timezone').innerHTML = timezone;
+                    checkSchedule.querySelector('note').innerHTML = note;
+                    checkSchedule.querySelector('address').innerHTML = address;
+                    checkSchedule.querySelector('postCode').innerHTML = postCode;
+                    checkSchedule.querySelector('tripCode').innerHTML = tripCode;
+    
+                    commuteGroup.appendChildcheckSchedule});
+            })
+        }; 
+    });
+}
 
 viewSchedule();
