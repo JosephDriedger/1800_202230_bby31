@@ -12,10 +12,12 @@
             <input type="text" class="form-control" aria-describedby="name" placeholder="Enter Route Name" required>
         </div>
         <div class="form-group">
-            <!-- Starting location address -->
+          <!-- Starting location address -->
+            <input type="text" class="form-control" aria-describedby="name" placeholder="Starting Address - Testing, use lat/long" required>
         </div>  
         <div class="form-group">
-            <!-- Ending location address -->
+          <!-- Ending location address-->
+          <input type="text" class="form-control" aria-describedby="name" placeholder="Ending Address - Testing, use lat/long" required>
         </div>
         <div class="form-group">
             <!-- Mode -->
@@ -25,7 +27,7 @@
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="hidemodal()">Close</button>
-      <button type="submit" class="btn btn-primary">Save changes</button>
+      <button type="submit" class="btn btn-primary" onclick="saveRoute()">Save changes</button>
     </div>
     </form>
   </div>
