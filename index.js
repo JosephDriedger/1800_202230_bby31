@@ -15,6 +15,7 @@ app.use("/js", express.static("./public/js"));
 app.use("/css", express.static("./public/css"));
 app.use("/img", express.static("./public/img"));
 app.use("/text", express.static("./public/text"));
+app.use("/data", express.static("./app/data/json"));
 
 // Default Menu
 app.get("/", function (req, res) {
@@ -92,7 +93,7 @@ app.get("/themes", function (req, res) {
     res.send(doc);
 });
 
-//Schedule Page
+// Schedule Page
 app.get("/schedule", function (req, res) {
     let doc = fs.readFileSync("./app/html/dropdown/schedule.html", "utf8");
     res.send(doc);

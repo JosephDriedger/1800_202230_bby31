@@ -28,6 +28,7 @@ function goToUserOnlyPage(page) {
   });
 }
 
+// Sign Out User.
 function signOut() {
   firebase.auth().signOut().then(function() {
     window.location.href = "./";
@@ -36,16 +37,25 @@ function signOut() {
     console.error('Sign Out Error', error);
   });
 }
-
-var pattern = /[ABCEFGHJKLMNPRSTVXY][0-9][ABCEFGHJKLMNPRSTVWXYZ][0-9][ABCEFGHJKLMNPRSTVWXYZ][0-9]/,
-$result = $("#result");
-
-$('#postCode').keyup(function(){
-  var val = this.value
-  if(!val.match(pattern)){
-    $result.text("invalid");
-  } else {
-    $result.text("valid");      
-  }
-});
 reportPage();
+
+// Check if an incident has occured.
+window.setInterval(function() {
+  let keyWord
+  let routes = db.collection("users").doc(user.uid)
+    .collection("routes").get()
+    .then(allRoutes.forEach(doc => {
+      // access all routes
+    }))
+}, 10)
+
+// For Development Purposes Only
+function createIncident(street, type, delay) {
+  var incidentRef = db.collection("incidents");
+
+  incidentRef.add({
+    street: street,
+    type: type,
+    delay: delay
+  });
+}

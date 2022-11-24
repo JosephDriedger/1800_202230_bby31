@@ -1,6 +1,5 @@
 /* Search Bars */
-body{
-
+body {
     background: #d1d5db;
 }
 
@@ -60,3 +59,8 @@ body{
     color: white;
     padding: 8px;
 }
+
+main, footer > p {
+    margin-left: 2em;
+}
+
