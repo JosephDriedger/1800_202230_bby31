@@ -21,12 +21,11 @@
   <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
   <!-------------------------------------------------------->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-
 
   <!-- Other libraries go here -->
 
@@ -41,32 +40,31 @@
   <!------------------------------>
 
   <nav id="navbarPlaceholder"></nav>
-
+  
   <div class="container">
     <h1 class="form_name">Your Schedules</h1>
   </div>
-
+ 
   <button onclick="document.getElementById('id_add').style.display='block'" style="width:auto;">Add</button>
-  
-  <template id="viewScheduleform">
+
+  <form id = "viewScheduleform" formaction = "viewSchedule()">
     
-    <ul>
-      <li id="date">schedule1</li>
-      <li class="time">schedule2</li>
-      <li class="timezone">schedule3</li>
-      <li class="note">schedule4</li>
-      <li class="address">schedule5</li>
-      <li class="postCode">schedule6</li>
-      <li class="tripCode">schedule7</li>
-    </ul>
-
-  </template>
-  
-
-  <div class="container">
-    <div id="viewScheduleGroup" class="row row-cols-auto"></div>
+        <ul>
+          <li class="date">placeholder</li>
+          <li class="time">placeholder</li>
+          <li class="timezone">placeholder</li>
+          <li class="note">placeholder</li>
+          <li class="address">placeholder</li>
+          <li class="postCode">placeholder</li>
+          <li class="tripCode">placeholder</li>
+        </ul>
+    
+  </form>
+   
+  <div class ="container">
+    <div id = "viewScheduleGrop" class = "row row-cols-auto"></div>
   </div>
-
+ 
   <div id="id_add" class="modal">
     <div class="container">
       <div class="card">
@@ -261,7 +259,7 @@
       }
     }
 
-
+  
   </script>
 
 

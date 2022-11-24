@@ -79,40 +79,51 @@ function addSchedule() {
         })
 }
 
+var firebaseConfig = {
+    apiKey: "AIzaSyDQiBwI8IU3gFUnv4ML80V04LqtJL3q268",
+    authDomain: "bby31-7f183.firebaseapp.com",
+    projectId: "bby31-7f183",
+    storageBucket: "bby31-7f183.appspot.com",
+    messagingSenderId: "499251907282",
+    appId: "1:499251907282:web:f4e5de098b196c3af1fb0b",
+    measurementId: "G-W1JBD9K2GT"
+};
+
 
 
 function viewSchedule() {
-    let commuteSchedule = document.getElementById("viewScheduleform");
-    let commuteGroup = document.getElementById("viewScheduleGroup");
+    var commuteSchedule = document.getElementById("viewScheduleform");
+    var commuteGroup = document.getElementById("viewScheduleGroup");
 
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             db.collection("users").doc(user.uid).collection("Schedules")
-            .orderBy("date")
-            .get()
-            .then(allviews => {
-                allviews.forEach(doc => {
-                    var date = doc.data().date; 
-                    var time = doc.data().time; 
-                    var timezone = doc.data().timezone;
-                    var note = doc.data().note; 
-                    var address = doc.data().address;
-                    var tripCode = doc.data().tripmode;
-                    var postCode = doc.data().postCode
-    
-                    let checkSchedule = commuteSchedule.content.cloneNode(true);
-                    checkSchedule.querySelector('date').innerHTML = date;
-                    checkSchedule.querySelector('time').innerHTML = time;
-                    checkSchedule.querySelector('timezone').innerHTML = timezone;
-                    checkSchedule.querySelector('note').innerHTML = note;
-                    checkSchedule.querySelector('address').innerHTML = address;
-                    checkSchedule.querySelector('postCode').innerHTML = postCode;
-                    checkSchedule.querySelector('tripCode').innerHTML = tripCode;
-    
-                    commuteGroup.appendChildcheckSchedule});
-            })
-        }; 
-    });
-}
+                .get()
+                .then(allviews => {
+                    allviews.forEach(doc => {
+                        var date = doc.data().date;
+                        var time = doc.data().time;
+                        var timezone = doc.data().timezone;
+                        var note = doc.data().note;
+                        var address = doc.data().address;
+                        var tripCode = doc.data().tripmode;
+                        var postCode = doc.data().postCode
 
+                        var checkSchedule = commuteSchedule.content.cloneNode(true);
+                        //checkSchedule.querySelector('.date').innerHTML = date;
+                        checkSchedule.getElementById("date").innerHTML = date;
+                        checkSchedule.querySelector('.time').innerHTML = time;
+                        checkSchedule.querySelector('.timezone').innerHTML = timezone;
+                        checkSchedule.querySelector('.note').innerHTML = note;
+                        checkSchedule.querySelector('.address').innerHTML = address;
+                        checkSchedule.querySelector('.postCode').innerHTML = postCode;
+                        checkSchedule.querySelector('.tripCode').innerHTML = tripCode;
+
+                        commuteGroup.appendChild(checkSchedule);
+                        console.log('you get it');
+                    })
+                });
+        };
+    })
+}
 viewSchedule();

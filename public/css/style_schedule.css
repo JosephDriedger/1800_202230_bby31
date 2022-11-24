@@ -5,13 +5,13 @@ html {
 }
 
 .container {
-  max-width: 60rem;
+  max-width: 100%;
   margin: 0 auto;
 }
 
 .card {
   border-radius: 5px;
-  max-width: 40rem;
+  max-width: 100%;
   margin: 0 auto;
   margin-top: 100px;
   min-height: 300px;
