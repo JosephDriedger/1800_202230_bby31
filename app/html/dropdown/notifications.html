@@ -31,6 +31,7 @@
 
         <!-- Link to styles of your own -->
         <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/style_notifications.css">
 
         <style>
         
@@ -54,12 +55,14 @@
         <nav id="navbarPlaceholder"></nav>
 
         <!-- content -->
-        <h1>Notifications</h1>
-        <form>
-            <input type="checkbox" id="turnOnNotifications" class="switch" onclick="saveNotifications()"/>
-            <label for="turnOnNotifications" class="toggle">
-                <h2>Enable Push Notifications</h2>
-            </label>
+        <form id="notification-head">
+            <h1>Notifications</h1>
+            <div class="form-check form-switch">
+                <input type="checkbox" id="turnOnNotifications" class="switch form-check-input" role="switch" onclick="saveNotifications()"/>
+                <label for="turnOnNotifications" class="toggle form-check-label">
+                    <h2>Enable Push Notifications</h2>
+                </label>
+            </div>
         </form>
 
         <main>

@@ -92,7 +92,7 @@ app.get("/themes", function (req, res) {
     res.send(doc);
 });
 
-//Schedule Page
+// Schedule Page
 app.get("/schedule", function (req, res) {
     let doc = fs.readFileSync("./app/html/dropdown/schedule.html", "utf8");
     res.send(doc);

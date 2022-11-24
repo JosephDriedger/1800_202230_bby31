@@ -1,6 +1,5 @@
 /* Search Bars */
-body{
-
+body {
     background: #d1d5db;
 }
 
@@ -59,4 +58,12 @@ body{
     background-color: red;
     color: white;
     padding: 8px;
+}
+
+main {
+    margin-left: 2em;
+}
+
+#notification-head {
+    margin-left: 2em;
 }
