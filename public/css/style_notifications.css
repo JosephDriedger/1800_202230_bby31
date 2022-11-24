@@ -1,0 +1,49 @@
+main {
+    align-content: left;
+}
+
+#notification-head {
+    margin-left: 2em;
+    padding-bottom: 1em;
+}
+
+.notification-group {
+    background-color: white;
+    font-size: 24px;
+    align-self: left;
+}
+
+.notify-head {
+    background-color: red;
+    color: white;
+    border: 2em;
+    border-color: black;
+    font-size: 32px;
+}
+
+.notify-description {
+    background-color: white;
+    color: black;
+    margin: 1em;
+}
+
+.notify-suggesstion {
+    background-color: blue;
+    color: white;
+}
+
+#notification-none {
+    font-size: 24px;
+    background-color: white;
+    width: 100%;
+    padding: 1em;
+}
+
+#turnOnNotifications {
+    font-size: 28px;
+    margin-left: 1px;
+}
+
+#switch-label {
+    margin-left: 1em;
+}
