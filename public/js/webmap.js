@@ -1,3 +1,5 @@
+var debugmode = true;
+
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 /* @preserve
  * Leaflet 1.9.2, a JS library for interactive maps. https://leafletjs.com
@@ -14443,5 +14445,57 @@ L.circleMarker([49.25006, -123.00202]).addTo(map)
 },{"leaflet":1}]},{},[2]);
 
 
+function callDATA(url, callback, data){
+    var xmlhttp;
+
+    // compatible with IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp = new XMLHttpRequest();
+    if (debugmode) {
+        console.log(xmlhttp);
+    }
+    xmlhttp.onreadystatechange = function(){
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+            if(typeof data !== "undefined" && typeof callback !== "undefined") {
+                if (debugmode) {
+                    console.log("2");
+                }
+                callback(xmlhttp.responseText, data);
+            } else if (typeof callback!== "undefined") {
+                if (debugmode) {
+                    console.log("1");
+                }
+                callback(xmlhttp.responseText);
+            } else {
+                if (debugmode) {
+                    console.log(xmlhttp.responseText);
+                }
+                return(xmlhttp.responseText);
+                
+            }
+        }
+    }
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+    return(xmlhttp.responseText);
+}
 
 
+
+//Adds point to map
+function addPointToMap(jsonData, placeId) {
+
+	var metadata = JSON.parse(jsonData);
+
+	L.circleMarker([metadata[placeId].lat, metadata[placeId].long]).addTo(map)
+	.bindPopup( 
+		metadata[placeId].name +
+		'<br>' +
+		metadata[placeId].address
+	);
+}
+
+function loadPoint(placeId) {
+	alert(placeId)
+	alert(typeof map);
+	callDATA("./data/places.json", addPointToMap, placeId);
+}

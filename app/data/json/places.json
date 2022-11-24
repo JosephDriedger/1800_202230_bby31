@@ -1,0 +1,50 @@
+{
+    "1": {
+        "name": "British Columbia Institute of Technology Burnaby",
+        "address": "3700 Willingdon Avenue",
+        "placeid": "1",
+        "lat": "49.25112",
+        "long": "-123.00123",
+        "tags": "['bby', 'bcit', 'school', 'bc', 'university', 'class', 'computer']"
+    },
+    "2": {
+        "name": "Metrotown",
+        "address": "4700 Kingsway",
+        "placeid":"2",
+        "lat": "49.22591",
+        "long": "-123.00273",
+        "tags": "['mall', 'metrotown skytrain', metrotown bus', 'store']"
+    },
+    "3": {
+        "name": "British Columbia Institute of Technology Downtown",
+        "address": "555 Seymour St",
+        "placeid": "3",
+        "lat": "49.28331",
+        "long": "-123.11515",
+        "tags": "['bcit', 'school', 'bc', 'university', 'class', 'computer']"
+    },
+    "4": {
+        "name": "Vancouver International Airport YVR",
+        "address": "3211 Grant McConachie Way",
+        "placeid": "4",
+        "lat": "49.19363",
+        "long": "-123.18046",
+        "tags": "['yvr', 'airport', 'air canada', 'flights']"
+    },
+    "5": {
+        "name": "5608 Clinton St",
+        "address": "5608 Clinton St",
+        "placeid": "5",
+        "lat": "49.21273",
+        "long": "-122.98267",
+        "tags": "['home', 'friend', ' ']"
+    },
+    "6": {
+        "name": "Brentwood Town Centre",
+        "address": "4567 Lougheed Hwy",
+        "placeid": "6",
+        "lat": "49.26665",
+        "long": "-123.00211",
+        "tags": "['mall', 'brentwood mall', 'store']"
+    }
+}
