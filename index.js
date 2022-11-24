@@ -15,6 +15,7 @@ app.use("/js", express.static("./public/js"));
 app.use("/css", express.static("./public/css"));
 app.use("/img", express.static("./public/img"));
 app.use("/text", express.static("./public/text"));
+app.use("/data", express.static("./app/data/json"));
 
 // Default Menu
 app.get("/", function (req, res) {
