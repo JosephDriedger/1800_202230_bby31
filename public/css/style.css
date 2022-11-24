@@ -60,10 +60,7 @@ body {
     padding: 8px;
 }
 
-main {
+main, footer > p {
     margin-left: 2em;
 }
 
-#notification-head {
-    margin-left: 2em;
-}

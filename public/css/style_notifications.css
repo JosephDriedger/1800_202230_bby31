@@ -2,6 +2,11 @@ main {
     align-content: left;
 }
 
+#notification-head {
+    margin-left: 2em;
+    padding-bottom: 1em;
+}
+
 .notification-group {
     background-color: white;
     font-size: 24px;
@@ -31,4 +36,14 @@ main {
     font-size: 24px;
     background-color: white;
     width: 100%;
+    padding: 1em;
+}
+
+#turnOnNotifications {
+    font-size: 28px;
+    margin-left: 1px;
+}
+
+#switch-label {
+    margin-left: 1em;
 }
