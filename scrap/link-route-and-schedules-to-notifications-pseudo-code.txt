@@ -1,0 +1,27 @@
+script.js
+
+Check Interval {
+
+Get each incident from Incident collection.
+
+Get each route from Route collection.
+
+Get each schedule from Schedule collection.
+
+If Street Location matches Route Streets {
+
+	If Incident is close to Schedule time (0-3 day buffer) {
+		Send Incident to Notifications
+	}
+
+}
+
+}
+
+Create Incidents {
+
+Get from Incident collection
+
+Add to Incident Collection (street1 location, street2 location, type of incident)
+
+}
