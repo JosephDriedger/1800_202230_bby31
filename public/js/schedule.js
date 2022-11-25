@@ -56,10 +56,6 @@ function saveSchedule() {
     })
 }
 
-function accessSchedules() {
-
-}
-
 function addSchedule() {
     var date = document.getElementByClass('date').value;
     var time = document.getElementByClass('time').value;
@@ -89,6 +85,34 @@ var firebaseConfig = {
     measurementId: "G-W1JBD9K2GT"
 };
 
+// Remove Expired Dates.
+function removeExpiredDates() {
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            let curDate = new Date();
+            console.log("Today's Date: " + curDate);
+            db.collection("users").doc(user.uid).collection("Schedules")
+                .get()
+                .then(allviews => {
+                    allviews.forEach(doc => {
+                        var date = doc.data().date;
+
+                        let myDate = new Date();
+
+                        if (date < curDate) {
+                            doc.delete().then(() => {
+                                console.log("Old Schedule Deleted.");
+                            }).catch((error) => {
+                                console.log("Error removing schedule: ", error);
+                            })
+                        }
+
+                    })
+                });
+        };
+    })
+}
+removeExpiredDates();
 
 function viewSchedule() {
     var commuteSchedule = document.getElementById("viewScheduleform");
@@ -97,8 +121,6 @@ function viewSchedule() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             db.collection("users").doc(user.uid).collection("Schedules")
-                .where("note", "==", "Final Exam")
-                .limit(10)
                 .get()
                 .then(allviews => {
                     allviews.forEach(doc => {
@@ -121,7 +143,7 @@ function viewSchedule() {
                         //checkSchedule.querySelector('.tripCode').innerHTML = tripCode;
 
                         commuteGroup.appendChild(checkSchedule);
-                        console.log('you get it');
+                        console.log("Date: " + date + " Time: " + time + "Notes: " + note);
                     })
                 });
         };
@@ -129,47 +151,3 @@ function viewSchedule() {
 }
 viewSchedule();
 
-
-
-
-
-
-
-/**
-function viewSchedule() {
-    var commuteSchedule = document.getElementById("viewScheduleform");
-    var commuteGroup = document.getElementById("viewScheduleGroup");
-
-    firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-            db.collection("users").doc(user.uid).collection("Schedules")
-                .get()
-                .then(allviews => {
-                    allviews.forEach(doc => {
-                        var date = doc.data().date;
-                        var time = doc.data().time;
-                        var timezone = doc.data().timezone;
-                        var note = doc.data().note;
-                        var address = doc.data().address;
-                        var tripCode = doc.data().tripmode;
-                        var postCode = doc.data().postCode
-
-                        var checkSchedule = commuteSchedule.content.cloneNode(true);
-                        checkSchedule.querySelector('.date').innerHTML = date;
-                        //checkSchedule.getElementById("date").innerHTML = date;
-                        checkSchedule.querySelector('.time').innerHTML = time;
-                        checkSchedule.querySelector('.timezone').innerHTML = timezone;
-                        checkSchedule.querySelector('.note').innerHTML = note;
-                        checkSchedule.querySelector('.address').innerHTML = address;
-                        checkSchedule.querySelector('.postCode').innerHTML = postCode;
-                        checkSchedule.querySelector('.tripCode').innerHTML = tripCode;
-
-                        commuteGroup.appendChild(checkSchedule);
-                        console.log('you get it');
-                    })
-                });
-        };
-    })
-}
-viewSchedule();
-*/

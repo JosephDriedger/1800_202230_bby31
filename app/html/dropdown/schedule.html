@@ -93,13 +93,16 @@
           </div>
           <fieldset class="dateAndTime">
             <div class="date">
-              <label for="date">Date</label> <input id="dateInput" class="form-control" type="date" required>
+              <label for="date">Date</label> 
+              <input id="dateInput" class="form-control" type="date" required>
             </div>
             <div class="time">
-              <label for="time">Time</label> <input id="timeInput" class="form-control" type="time" required>
+              <label for="time">Time</label> 
+              <input id="timeInput" class="form-control" type="time" required>
             </div>
             <div class="timezone">
-              <label for="timezone">Timezone</label> <select name="timezone" id="timezoneInput">
+              <label for="timezone">Timezone</label> 
+              <select name="timezone" id="timezoneInput" required>
                 <option value="-12">
                   (GMT -12:00) Eniwetok, Kwajalein
                 </option>
@@ -219,9 +222,10 @@
             <div class="section">
               <div class="box">
                 2
-              </div><span>Your Schedule Notes</span>
+              </div>
+              <span>Your Schedule Notes</span>
             </div>
-            <textarea id="noteInput" placeholder="e.g. Please do .. Also, .." cols="50" rows="5"></textarea>
+            <textarea id="noteInput" placeholder="e.g. Please do .. Also, .." cols="50" rows="5" required></textarea>
           </fieldset>
           <fieldset class="routeInfo">
             <div class="section">
@@ -231,15 +235,18 @@
               <span>Route Information</span>
             </div>
             <div class="cname">
-              <label for="cname">Your destination</label> <input placeholder="3700 Willingdon Ave, Burnaby" id="address"
+              <label for="cname">Your destination</label> 
+              <input required placeholder="3700 Willingdon Ave, Burnaby" id="address"
                 type="text">
             </div>
             <div class="cnum">
-              <label for="cnum">Post Code</label> <input id="postCode" type="text" placeholder="V5G3H2">
+              <label for="cnum">Post Code</label> 
+              <input id="postCode" type="text" placeholder="V5G3H2" required>
               <span id="result"></span>
             </div>
             <div class="cname">
-              <label for="cname">Trip Mode</label> <select name="timezone" id="tripCode">
+              <label for="cname">Trip Mode</label> 
+              <select name="timezone" id="tripCode" required>
                 <option value="Drive">
                   Drive
                 </option>
