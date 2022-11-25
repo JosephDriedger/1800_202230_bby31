@@ -42,20 +42,24 @@ reportPage();
 // Check if an incident has occured.
 window.setInterval(function() {
   let keyWord
-  let routes = db.collection("users").doc(user.uid)
-    .collection("routes").get()
-    .then(allRoutes.forEach(doc => {
-      // access all routes
-    }))
+  let routes = db.collection("users").doc(user.uid).collection("routes");
+  let schedules = db.collection("users").doc(user.uid).collection("Schedules")
+  incidentRef.get().then(allIncidents => {
+    allIncidents.forEach(doc => {
+      var street;
+    })
+  });
 }, 10)
 
 // For Development Purposes Only
-function createIncident(street, type, delay) {
+function createIncident(street, type, delay, description, suggestion) {
   var incidentRef = db.collection("incidents");
 
   incidentRef.add({
     street: street,
     type: type,
-    delay: delay
+    delay: delay,
+    description: description,
+    suggestion: suggestion
   });
 }
