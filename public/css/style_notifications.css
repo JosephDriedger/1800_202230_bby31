@@ -2,29 +2,41 @@ main {
     align-content: left;
 }
 
+article {
+    background-color: white;
+    padding: 10px;
+}
+
+.container {
+    display: block;
+}
+
+.notification {
+    background-color: white;
+    border-color: black;
+    border-width: 5px;
+    width: 100%;
+    padding: 5px;
+    float: left;
+}
+
 #notification-head {
     margin-left: 2em;
     padding-bottom: 1em;
 }
 
-.notification-group {
-    background-color: white;
-    font-size: 24px;
-    align-self: left;
-}
-
 .notify-head {
     background-color: red;
     color: white;
-    border: 2em;
+    border-width: 2em;
     border-color: black;
     font-size: 32px;
+    padding: 5px;
 }
 
 .notify-description {
     background-color: white;
     color: black;
-    margin: 1em;
 }
 
 .notify-suggesstion {

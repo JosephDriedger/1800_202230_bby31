@@ -4,11 +4,14 @@ var currentUser;
 var numOfNotifications = 0;
 
 // Display Message if No Notifications are Available.
-if (numOfNotifications == 0) {
-    document.getElementById("notification-none").innerHTML = "No Notifications Available";
-} else {
-    document.getElementById("notification-none").innerHTML = "";
+function displayNoneNotification() {
+    if (numOfNotifications === 0) {
+        document.getElementById("notification-none").hidden = false;
+    } else {
+        document.getElementById("notification-none").hidden = true;
+    }
 }
+displayNoneNotification();
 
 function loadNotificationSettings() {
     firebase.auth().onAuthStateChanged(user => {
@@ -51,8 +54,8 @@ function postNotifications() {
     let notificationTemplate = document.getElementById("notificationTemplate");
     let notificationGroup = document.getElementById("notification-group");
 
-    db.collection("users").doc(user.uid).collection("Notifications")
-        .orderBy("daysSinceIncident")
+    firebase.auth().onAuthStateChanged(user => {
+        db.collection("users").doc(user.uid).collection("Notifications")
         .get()
         .then(allIncidents => {
             allIncidents.forEach(doc => {
@@ -74,7 +77,7 @@ function postNotifications() {
                 }
 
                 if (suggestion != null) {
-                    testNotificationCard.querySelector('notify-suggestion').innerHTML = suggestion;
+                    testNotificationCard.querySelector('.notify-suggestion').innerHTML = suggestion;
                 } else {
                     testNotificationCard.querySelector('.notify-suggestion').innerHTML = "No suggestions available.";
                 }
@@ -83,8 +86,26 @@ function postNotifications() {
 
                 numOfNotifications++;
             })
+            document.getElementById("notify-num").innerHTML = numOfNotifications;
+            displayNoneNotification();
         })
-    document.getElementById("notify-num").innerHTML = numOfNotifications;
+    })
 }
 
-// postNotifications();
+postNotifications();
+
+// Test Purposes
+function createNotification() {
+    firebase.auth().onAuthStateChanged(user => {
+        let notification = db.collection("users").doc(user.uid).collection("Notifications");
+        notification.add({
+            route: "Route 1",
+            description: "Accident on Highway 1",
+            suggestion: "Leave 1 hour earlier"
+        }).then(function() {
+            console.log("Notification Added")
+        }) 
+        loadNotificationSettings();
+    })
+    
+}

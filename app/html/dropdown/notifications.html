@@ -41,10 +41,10 @@
 
     <body>
         <template id="notificationTemplate">
-            <div class="notification">
-                <h2 class="notify-head">URGENT NOTIFICATION</h2>
-                <p class="notify-description">notification placeholder</p>
-                <p class="notify-suggestion">notification placeholder</p>
+            <div class="notification card">
+                <h2 class="notify-head card-title">URGENT NOTIFICATION</h2>
+                <p class="notify-description card-text">notification placeholder</p>
+                <p class="notify-suggestion card-text">notification placeholder</p>
             </div>
         </template>
         <!------------------------------>
@@ -67,11 +67,14 @@
 
         <main>
             <h1>Recent Activity</h1>
-            <div class="container">
-                <div id="notification-group" class="row row-cols-auto">
+            <article>
+                <div class="container">
+                    <div id="notification-group" class="row row-cols-auto">
+                    </div>
                 </div>
-            </div>
-            <p id="notification-none"></p>
+                <p id="notification-none" hidden>No Notifications Available</p>
+            </article>
+
         </main>
         
 

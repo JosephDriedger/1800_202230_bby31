@@ -58,6 +58,7 @@ body {
     background-color: red;
     color: white;
     padding: 8px;
+    border: 5px black;
 }
 
 main, footer > p {
