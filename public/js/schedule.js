@@ -121,6 +121,8 @@ function viewSchedule() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             db.collection("users").doc(user.uid).collection("Schedules")
+
+                .limit(10)
                 .get()
                 .then(allviews => {
                     allviews.forEach(doc => {
