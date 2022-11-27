@@ -1,4 +1,8 @@
 var debugmode = true;
+var addPoint;
+var drawLine;
+var routePlaceId1;
+var routePlaceId2;
 
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 /* @preserve
@@ -14432,18 +14436,49 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // Adds a popup marker to the webmap for GGL address
-L.circleMarker([49.25006, -123.00202]).addTo(map)
-	.bindPopup( 
-		'BCIT Burnaby Campus<br>' +
-		'White Ave<br>' + 
-		'Vancouver, Canada<br>' +
-		'V5G 3H23<br><br>' + 
-		'Tel: (604) 434-5734'
-	)
-	.openPopup(); 
+// var marker1 = L.circleMarker([49.25006, -123.00202]).addTo(map)
+// 	.bindPopup( 
+// 		'BCIT Burnaby Campus<br>' +
+// 		'White Ave<br>' + 
+// 		'Vancouver, Canada<br>' +
+// 		'V5G 3H23<br><br>' + 
+// 		'Tel: (604) 434-5734'
+// 	)
+// 	.openPopup();
+	
+
+
+//Adds point to map
+addPoint = (jsonData, placeId) => {
+
+	var metadata = JSON.parse(jsonData);
+	console.log("aaaaaaaaaaaaaa")
+	var addmarker = L.circleMarker([metadata[placeId].lat, metadata[placeId].long])
+		.bindPopup(
+			metadata[placeId].name +
+			'<br>' +
+			metadata[placeId].address
+		);
+	addmarker.addTo(map);
+}
+
+drawLine = (lat1, long1, lat2, long2, color) => {
+	var pointA = new L.LatLng(lat1, long1);
+	var pointB = new L.LatLng(lat2, long2);
+	var pointList = [pointA, pointB];
+
+	var polyline = new L.Polyline(pointList, {
+		color: color,
+		weight: 3,
+		opacity: 0.5,
+		smoothFactor: 1
+	});
+	polyline.addTo(map);
+}
+
+
 
 },{"leaflet":1}]},{},[2]);
-
 
 function callDATA(url, callback, data){
     var xmlhttp;
@@ -14455,10 +14490,10 @@ function callDATA(url, callback, data){
     }
     xmlhttp.onreadystatechange = function(){
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-            if(typeof data !== "undefined" && typeof callback !== "undefined") {
+            if(typeof data !== "undefined" && typeof callback !== "undefined") {49.24820,-123.00435
                 if (debugmode) {
                     console.log("2");
-                }
+                }49.23270,-123.01260
                 callback(xmlhttp.responseText, data);
             } else if (typeof callback!== "undefined") {
                 if (debugmode) {
@@ -14481,21 +14516,47 @@ function callDATA(url, callback, data){
 
 
 
-//Adds point to map
-function addPointToMap(jsonData, placeId) {
-
-	var metadata = JSON.parse(jsonData);
-
-	L.circleMarker([metadata[placeId].lat, metadata[placeId].long]).addTo(map)
-	.bindPopup( 
-		metadata[placeId].name +
-		'<br>' +
-		metadata[placeId].address
-	);
-}
 
 function loadPoint(placeId) {
-	alert(placeId)
-	alert(typeof map);
-	callDATA("./data/places.json", addPointToMap, placeId);
+
+	callDATA("./data/places.json", addPoint, placeId);
+}
+
+function createRoute(placeId1, placeId2) {
+	routePlaceId1 = placeId1;
+	routePlaceId2 = placeId2
+	callDATA("./data/places.json", loadRoute);
+}
+
+function loadRoute() {
+
+
+}
+
+function drawPredefinedRoutes(pRouteId) {
+	var color = "blue";
+	switch(pRouteId) {
+		// MetroTown -> BCIT
+		case 1:
+			drawLine(49.22616, -123.00353, 49.22597, -123.00378, color);
+			drawLine(49.22597, -123.00378, 49.22764, -123.00757, color);
+			drawLine(49.22764, -123.00757, 49.23149, -123.00348, color);
+			drawLine(49.23149, -123.00348, 49.23208, -123.00334, color);
+			drawLine(49.23208, -123.00334, 49.24649, -123.00338, color);
+			drawLine(49.24649, -123.00338, 49.24820, -123.00435, color);
+			drawLine(49.24820, -123.00435, 49.25161, -123.00433, color);
+			break;
+		// MetroTown -> Bcit ALT
+		case 2:
+			drawLine(49.22616, -123.00353, 49.22597, -123.00378, color);
+			drawLine(49.22597, -123.00378, 49.22764, -123.00757, color);
+			drawLine(49.22764, -123.00757, 49.22730,-123.00795, color);
+			drawLine(49.22730,-123.00795, 49.22923,-123.01216, color);
+			drawLine(49.22923,-123.01216, 49.22949,-123.01265, color);
+			drawLine(49.22949,-123.01265, 49.23270,-123.01260, color);
+			drawLine(49.23270,-123.01260, 49.23287,-123.01105, color);
+			drawLine(49.23287,-123.01105, 49.23402,-123.01111, color);
+			
+
+	}
 }

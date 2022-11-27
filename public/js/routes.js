@@ -45,21 +45,6 @@ function getRoutes(user) {
               testRouteCard.querySelector('.card-title').innerHTML = tripDate;     //equiv getElementByClassName
               testRouteCard.querySelector('.card-length').innerHTML = tripDest;  //equiv getElementByClassName
               
-
-              // testHikeCard.querySelector('.card-length').innerHTML = 
-              // "Length: " + doc.data().length + " km <br>" +
-              // "Duration: " + doc.data().length_time + "min <br>" +
-              // "Last updated: " + doc.data().last_updated.toDate(); 
-
-              // testHikeCard.querySelector('a').onclick = () => setHikeData(hikeID);//equiv getElementByTagName
-
-              // testHikeCard.querySelector('i').id = 'save-' + hikeID;
-              // testHikeCard.querySelector('i').onclick = () => saveBookmark(hikeID);
-
-
-              // testHikeCard.querySelector('img').src = `./images/${hikeID}.jpg`;   //equiv getElementByTagName
-              // testHikeCard.querySelector('.read-more').href = "eachHike.html?hikeName="+hikeName +"&id=" + hikeID;
-              // hikeCardGroup.appendChild(testHikeCard);
             }
         })
 })};
