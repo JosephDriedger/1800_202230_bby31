@@ -14427,7 +14427,7 @@ L.DomEvent.on(div, 'click', L.DomEvent.stopPropagation);
 // Creates a leaflet map binded to an html <div> with id "map"
 // setView will set the initial map view to the location at coordinates
 // 13 represents the initial zoom level with higher values being more zoomed in
-var map = L.map('map').setView([47.659752, -79.378161], 19);
+var map = L.map('map').setView([49.2487, -123.0020], 16);
 
 // Adds the basemap tiles to your web map
 // Additional providers are available at: https://leaflet-extras.github.io/leaflet-providers/preview/
@@ -14445,8 +14445,7 @@ var marker1 = L.circleMarker([49.25006, -123.00202]).addTo(map)
 		'Vancouver, Canada<br>' +
 		'V5G 3H23<br><br>' + 
 		'Tel: (604) 434-5734'
-	)
-	.openPopup();
+	);
 	
 
 
@@ -14479,7 +14478,7 @@ drawLine = (lat1, long1, lat2, long2, color) => {
 		smoothFactor: 1
 	});
 	polyline.addTo(map);
-	map.flyTo([49.2384, -123.0144], 14);
+	map.flyTo([49.216, -123.0862], 12);
 }
 
 
@@ -14542,6 +14541,9 @@ function loadRoute(jsonData) {
 	var routeNumber;
 	
 	routeNumber = parseInt(jsonData);
+
+	const element = document.getElementById("searchResults");
+	element.remove();
 
 	// if (typeof jsonData == 'undefined') {
 	// 	while(typeof routeNumber == 'undefined' || isNaN(routeNumber)) {
@@ -14799,10 +14801,10 @@ function drawPredefinedRoutes(pRouteId) {
 			drawLine(49.22758,-123.00754, 49.22333,-123.01224, color);
 			drawLine(49.22333,-123.01224, 49.22193,-123.01246, color);
 			drawLine(49.22193,-123.01246, 49.22205,-123.02371, color);
-			drawLine(49.22205,-123.02371, 49.22229,-123.02606. color);
+			drawLine(49.22205,-123.02371, 49.22229,-123.02606, color);
 			drawLine(49.22229,-123.02606, 49.22382,-123.02907, color);
 			drawLine(49.22382,-123.02907, 49.2247,-123.0324, color);
-			drawLine(49.2247,-123.0324, 49.22531,-123.07717, color);
+			drawLine(49.22470,-123.03240, 49.22531,-123.07717, color);
 			drawLine(49.22531,-123.07717, 49.22010,-123.07745, color);
 			drawLine(49.22010,-123.07745, 49.21873,-123.07692, color);
 			drawLine(49.21873,-123.07692, 49.21236,-123.07725, color);
