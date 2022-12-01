@@ -2,8 +2,29 @@
 
     <div class="form">
         <i class="fa fa-search"></i>
-        <input type="text" class="form-control form-input" placeholder="Search">
+        <input type="text" id="myInput" class="form-control form-input search-input" onkeyup="search()" placeholder="Search">
         <span class="left-pan"><i class="fa fa-microphone"></i></span>
+        <ul id="searchResults" class="results">
+
+            <li><a href="#" onclick="">
+                BCIT
+            </a></li>
+          
+            <li><a href="#" onclick="loadRoute(1)">
+                Metrotown
+            </a></li>
+            <li><a href="#" onclick="loadRoute(3)">
+                BCIT Downtown Campus
+            </a></li>
+          
+            <li><a href="#" onclick="loadRoute(5)">
+                Vancouver International Airport (YVR)
+            </a></li>
+            <li><a href="#" onclick="loadRoute(6)">5608 Clinton St</a></li>
+            <li><a href="#" onclick="loadRoute(7)">Brentwood Town Centre</a></li>
+          </ul>
     </div>
+    
 </div>
+
 

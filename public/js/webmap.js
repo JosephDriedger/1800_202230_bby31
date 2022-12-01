@@ -14470,6 +14470,7 @@ drawLine = (lat1, long1, lat2, long2, color) => {
 	var pointA = new L.LatLng(lat1, long1);
 	var pointB = new L.LatLng(lat2, long2);
 	var pointList = [pointA, pointB];
+	
 
 	var polyline = new L.Polyline(pointList, {
 		color: color,
@@ -14478,6 +14479,7 @@ drawLine = (lat1, long1, lat2, long2, color) => {
 		smoothFactor: 1
 	});
 	polyline.addTo(map);
+	map.flyTo([49.2384, -123.0144], 14);
 }
 
 
@@ -14534,13 +14536,21 @@ function createRoute(placeId1, placeId2) {
 	callDATA("./data/places.json", loadRoute);
 }
 
+
 function loadRoute(jsonData) {
+
 	var routeNumber;
-	if (typeof jsonData == 'undefined') {
-		while(typeof routeNumber == 'undefined' || isNaN(routeNumber)) {
-			routeNumber = parseInt(prompt("No Route Detected, please input route id"));
-		}
-	}
+	
+	routeNumber = parseInt(jsonData);
+
+	// if (typeof jsonData == 'undefined') {
+	// 	while(typeof routeNumber == 'undefined' || isNaN(routeNumber)) {
+	// 		routeNumber = parseInt(prompt("No Route Detected, please input route id"));
+	// 	}
+	// } else if (typeof jsonData != "object") {
+	// 	alert("a")
+		
+	// }
 
 	switch(routeNumber) {
 		// 1 -> 2
