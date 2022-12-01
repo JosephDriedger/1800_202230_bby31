@@ -6,34 +6,33 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 const fs = require("fs");
-
-  
+const functions = require("firebase-functions");
 
 // just like a simple web server like Apache web server
 // we are mapping file system paths to the app's virtual paths
-app.use("/js", express.static("./public/js"));
-app.use("/css", express.static("./public/css"));
-app.use("/img", express.static("./public/img"));
-app.use("/text", express.static("./public/text"));
-app.use("/data", express.static("./app/data/json"));
+app.use("/js", express.static("../public/js"));
+app.use("/css", express.static("../public/css"));
+app.use("/img", express.static("../public/img"));
+app.use("/text", express.static("../public/text"));
+app.use("/data", express.static("../app/data/json"));
 
 // Default Menu
 app.get("/", function (req, res) {
     //console.log(process.env);
     // retrieve and send an HTML document from the file system
-    let doc = fs.readFileSync("./app/html/index.html", "utf8");
+    let doc = fs.readFileSync("../app/html/index.html", "utf8");
     res.send(doc);
 });
 
 // Log In Menu
 app.get("/login", function (req, res) {
-    let doc = fs.readFileSync("./app/html/login.html", "utf8");
+    let doc = fs.readFileSync("../app/html/login.html", "utf8");
     res.send(doc);
 });
 
 // Main Menu
 app.get("/main", function (req, res) {
-    let doc = fs.readFileSync("./app/html/main.html", "utf8");
+    let doc = fs.readFileSync("../app/html/main.html", "utf8");
     res.send(doc);
 });
 
@@ -41,61 +40,61 @@ app.get("/main", function (req, res) {
 
 // Profile Page
 app.get("/profile", function (req, res) {
-    let doc = fs.readFileSync("./app/html/dropdown/profile.html", "utf8");
+    let doc = fs.readFileSync("../app/html/dropdown/profile.html", "utf8");
     res.send(doc);
 });
 
 // Notifications Page
 app.get("/notifications", function (req, res) {
-    let doc = fs.readFileSync("./app/html/dropdown/notifications.html", "utf8");
+    let doc = fs.readFileSync("../app/html/dropdown/notifications.html", "utf8");
     res.send(doc);
 });
 
 // Routes Page
 app.get("/routes", function (req, res) {
-    let doc = fs.readFileSync("./app/html/dropdown/routes.html", "utf8");
+    let doc = fs.readFileSync("../app/html/dropdown/routes.html", "utf8");
     res.send(doc);
 });
 
 // Schedule Page
 app.get("/schedule", function (req, res) {
-    let doc = fs.readFileSync("./app/html/dropdown/schedule.html", "utf8");
+    let doc = fs.readFileSync("../app/html/dropdown/schedule.html", "utf8");
     res.send(doc);
 });
 
 // Password Reset Page
 app.get("/passwordReset", function (req, res) {
-    let doc = fs.readFileSync("./app/html/dropdown/passwordReset.html", "utf8");
+    let doc = fs.readFileSync("../app/html/dropdown/passwordReset.html", "utf8");
     res.send(doc);
 });
 
 // Privacy Page
 app.get("/privacy", function (req, res) {
-    let doc = fs.readFileSync("./app/html/dropdown/privacy.html", "utf8");
+    let doc = fs.readFileSync("../app/html/dropdown/privacy.html", "utf8");
     res.send(doc);
 });
 
 // Language Page
 app.get("/language", function (req, res) {
-    let doc = fs.readFileSync("./app/html/dropdown/language.html", "utf8");
+    let doc = fs.readFileSync("../app/html/dropdown/language.html", "utf8");
     res.send(doc);
 });
 
 // Help Page
 app.get("/help", function (req, res) {
-    let doc = fs.readFileSync("./app/html/dropdown/help.html", "utf8");
+    let doc = fs.readFileSync("../app/html/dropdown/help.html", "utf8");
     res.send(doc);
 });
 
 // Themes Page
 app.get("/themes", function (req, res) {
-    let doc = fs.readFileSync("./app/html/dropdown/themes.html", "utf8");
+    let doc = fs.readFileSync("../app/html/dropdown/themes.html", "utf8");
     res.send(doc);
 });
 
 // Schedule Page
 app.get("/schedule", function (req, res) {
-    let doc = fs.readFileSync("./app/html/dropdown/schedule.html", "utf8");
+    let doc = fs.readFileSync("../app/html/dropdown/schedule.html", "utf8");
     res.send(doc);
 });
 
@@ -112,3 +111,5 @@ app.listen(port, function () {
     console.log("Commute! app listening on port " + port + "!");
 });
 
+exports.app = functions.https.onRequest(app);
+  
