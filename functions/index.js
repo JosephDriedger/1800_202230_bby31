@@ -14,7 +14,7 @@ app.use("/js", express.static("../public/js"));
 app.use("/css", express.static("../public/css"));
 app.use("/img", express.static("../public/img"));
 app.use("/text", express.static("../public/text"));
-app.use("/data", express.static("../app/data/json"));
+app.use("/data", express.static("./data/json"));
 
 // Default Menu
 app.get("/", function (req, res) {
@@ -105,11 +105,15 @@ app.use(function (req, res, next) {
     res.status(404).send("<html><head><title>Page not found!</title></head><body><p>Nothing here.</p></body></html>");
 });
 
-// RUN SERVER
-let port = 8000;
-app.listen(port, function () {
-    console.log("Commute! app listening on port " + port + "!");
-});
+app.use(express.urlencoded({
+    extended: true
+}));
+
+app.use(express.json());
 
 exports.app = functions.https.onRequest(app);
-  
+
+let port = 8000;
+app.listen(port, function () {
+    console.log("The Commute! app listening on port " + port + "!");
+});
